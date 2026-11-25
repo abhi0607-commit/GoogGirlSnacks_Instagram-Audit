@@ -3,11 +3,11 @@ This project is an Instagram audit and redesign for Good Girl Snacks, presented 
 
 It starts by auditing the brand's current Instagram profile, then proposes a refreshed presence:
 
-Bio makeover comparing the current bio with the improved one
-Full proposed profile mockup with a phone preview and a pinned-post triptych
-Story highlight covers in a consistent visual style
-Reel storyboard, a packed-lunch pickle reel planned frame by frame
-Retail journey, showing how a shopper moves from the store aisle to the store locator
+* Bio makeover comparing the current bio with the improved one
+* Full proposed profile mockup with a phone preview and a pinned-post triptych
+* Story highlight covers in a consistent visual style
+* Reel storyboard, a packed-lunch pickle reel planned frame by frame
+* Retail journey, showing how a shopper moves from the store aisle to the store locator
 
 Project Link: https://claude.ai/artifact/AHHUM3M3ARFYZtdXKnwKxp
 
