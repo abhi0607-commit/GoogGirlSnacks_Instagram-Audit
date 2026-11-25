@@ -1,5 +1,5 @@
 # Good Girl Snacks — Instagram Audit & Redesign (portfolio site)
-
+Project Link: https://claude.ai/artifact/AHHUM3M3ARFYZtdXKnwKxp
 Static HTML/CSS/JS. No build step, backend, login, or API key.
 
 ## Run locally
