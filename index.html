@@ -1,0 +1,1142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Good Girl Snacks Redesign</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Independent portfolio case study by Abhilasha Kashyap: an Instagram audit and redesign for Good Girl Snacks.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,700;1,700;1,800;1,900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@700;900&display=swap">
+<script>document.documentElement.classList.add('js');(function(){var d=document.documentElement;d.lang='en';try{if(localStorage.getItem('ggs-lang')==='ko')d.lang='ko';}catch(e){}})();</script>
+<style>
+/* Layout: editorial single column with wide margins; the comparison is a full-bleed pink stage. Deliberate single light look (cream canvas). */
+:root{
+  --cream:#FFF7EF; --cream-2:#FBEADB; --cherry:#AA001B; --cherry-dk:#7E0014;
+  --pink:#FFD8E4; --pink-2:#F6A9C0; --ink:#211617; --ink-2:#5B4646; --line:#E9D3C6;
+  --pickle:#4E6B2B; --white:#FFFFFF; --ig-blue:#2E4FB8;
+  --display:"Playfair Display","Playfair",Georgia,"Times New Roman",serif;
+  --body:"DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --gutter:max(16px,env(safe-area-inset-left,0px));
+  --gutter-r:max(16px,env(safe-area-inset-right,0px));
+  --wrap:1180px; --radius:14px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--cream);color:var(--ink);font:400 17px/1.6 var(--body);overflow-x:hidden}
+img,video,svg{max-width:100%;display:block}
+a{color:var(--cherry);text-underline-offset:3px;text-decoration-thickness:1.5px}
+a:hover{color:var(--cherry-dk)}
+h1,h2,h3{font-family:var(--display);font-style:italic;font-weight:800;line-height:1.05;text-wrap:balance;margin:0;letter-spacing:-.01em}
+h2{font-size:clamp(2.1rem,5.2vw,3.6rem);color:var(--ink)}
+h3{font-size:1.35rem;font-weight:700}
+p{margin:0}
+.band{padding-left:var(--gutter);padding-right:var(--gutter-r)}
+.wrap{max-width:var(--wrap);margin:0 auto}
+.section{padding-block:clamp(64px,10vw,128px)}
+.eyebrow{font:700 .78rem/1.2 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--cherry)}
+.lede{font-size:clamp(1.05rem,1.6vw,1.2rem);max-width:62ch;color:var(--ink-2)}
+.measure{max-width:65ch}
+.stack{display:grid;gap:18px}
+.tag{display:inline-flex;align-items:center;gap:6px;font:700 .72rem/1 var(--body);letter-spacing:.1em;text-transform:uppercase;padding:7px 10px;border-radius:999px;background:var(--white);border:1px solid var(--line);color:var(--ink-2)}
+.tag.red{background:var(--cherry);color:var(--white);border-color:var(--cherry)}
+:focus-visible{outline:3px solid var(--cherry);outline-offset:3px;border-radius:6px}
+.on-red :focus-visible{outline-color:var(--white)}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:absolute;left:12px;top:-60px;background:var(--ink);color:var(--white);padding:10px 14px;border-radius:8px;z-index:50}
+.skip:focus{top:12px}
+
+/* Buttons */
+.btn{appearance:none;font:700 1rem/1 var(--body);border-radius:999px;padding:0 22px;min-height:48px;display:inline-flex;align-items:center;justify-content:center;gap:10px;cursor:pointer;border:2px solid var(--cherry);background:var(--white);color:var(--cherry);text-decoration:none;transition:background-color .2s,color .2s,transform .2s}
+.btn:hover{background:var(--pink);color:var(--cherry-dk)}
+.btn.primary{background:var(--cherry);color:var(--white)}
+.btn.primary:hover{background:var(--cherry-dk);color:var(--white)}
+.btn[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--white)}
+.btn:active{transform:translateY(1px)}
+.btn svg{width:18px;height:18px}
+
+/* Header */
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:20px;font-size:.9rem}
+.top .mark{font:italic 800 1.15rem/1 var(--display);color:var(--cherry);text-decoration:none}
+.top nav{display:flex;gap:18px;flex-wrap:wrap}
+.top nav a{color:var(--ink);text-decoration:none;font-weight:500}
+.top nav a:hover{color:var(--cherry);text-decoration:underline}
+@media (max-width:720px){.top nav{display:none}}
+
+/* Hero */
+.hero{padding-block:clamp(16px,4vw,40px) clamp(56px,8vw,96px)}
+.hero-text{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(20px,5vw,64px);align-items:end}
+.hero h1{font-size:clamp(2.6rem,7vw,5.6rem);color:var(--cherry);font-weight:900;line-height:.95;margin-top:12px}
+.hero .sub{font:italic 700 clamp(1.3rem,2.6vw,1.9rem)/1.15 var(--display);color:var(--ink);margin-top:10px}
+.hero .summary{font-size:clamp(1.1rem,1.7vw,1.3rem);line-height:1.45;max-width:34ch}
+.hero .byline{margin-top:14px;font-size:.95rem;color:var(--ink-2)}
+.hero .byline b{color:var(--ink)}
+.hero .cta-row{margin-top:22px;display:flex;gap:14px;flex-wrap:wrap}
+.hero-art{margin:clamp(28px,4vw,44px) 0 0}
+.hero-art img{width:100%;height:auto;border-radius:clamp(14px,2vw,24px);box-shadow:0 40px 70px -46px rgba(126,0,20,.6)}
+.hero-art figcaption{font-size:.8rem;color:var(--ink-2);margin-top:10px}
+@media (max-width:760px){.hero-text{grid-template-columns:1fr;gap:18px}}
+@media (prefers-reduced-motion:no-preference){
+  .js .beat1{animation:rise .6s cubic-bezier(.2,.7,.2,1) both}
+  .js .beat2{animation:rise .7s .2s cubic-bezier(.2,.7,.2,1) both}
+  .js .beat3{animation:nudge .5s .42s cubic-bezier(.2,.7,.2,1) both}
+}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes nudge{from{transform:translateY(10px)}to{transform:none}}
+
+/* Audit */
+.audit-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,6vw,80px);align-items:start;margin-top:40px}
+.evidence{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:14px}
+.evidence img{border-radius:8px;width:100%;height:auto}
+.evidence figcaption{font-size:.82rem;color:var(--ink-2);margin-top:10px}
+.evidence .mark-box{position:relative}
+.evidence .hl-ret{position:absolute;left:3%;right:3%;top:58.5%;height:19%;border:3px solid var(--cherry);border-radius:8px;pointer-events:none}
+.evidence .hl-ret b{position:absolute;right:-3px;bottom:-26px;background:var(--cherry);color:var(--white);font-size:.72rem;padding:4px 8px;border-radius:6px;letter-spacing:.06em;text-transform:uppercase}
+.obs{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:0;counter-reset:o}
+.obs li{display:grid;grid-template-columns:auto 1fr;gap:16px;padding:20px 0;border-top:1px solid var(--line)}
+.obs li:last-child{border-bottom:1px solid var(--line)}
+.obs .ic{width:42px;height:42px;border-radius:50%;background:var(--pink);color:var(--cherry);display:grid;place-items:center}
+.obs .ic svg{width:20px;height:20px}
+.obs b{display:block;font-size:1.02rem}
+.scope{margin-top:28px;background:var(--cream-2);border-radius:var(--radius);padding:18px 20px;font-size:.93rem;color:var(--ink-2)}
+.scope b{color:var(--ink)}
+@media (max-width:860px){.audit-grid{grid-template-columns:1fr}.evidence{max-width:520px}}
+
+/* Comparison stage */
+.stage{background:var(--pink)}
+.stage-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px}
+.cmp-shell{margin-top:36px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,340px);gap:clamp(24px,4vw,48px);align-items:start}
+@media (max-width:960px){.cmp-shell{grid-template-columns:1fr}}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.controls .sep{width:1px;height:28px;background:rgba(170,0,27,.25);margin:0 4px}
+.cmp{position:relative;margin-top:16px;border-radius:22px;background:var(--white);box-shadow:0 30px 60px -36px rgba(126,0,20,.55);overflow:hidden;user-select:none;-webkit-user-select:none}
+.cmp-note{font-size:.82rem;color:var(--ink-2);margin-top:12px}
+/* No-JS fallback: both excerpts side by side, fully readable */
+.cmp-layers{display:grid;grid-template-columns:1fr 1fr}
+.js .cmp-layers{display:grid;grid-template-columns:1fr;position:relative;touch-action:pan-y;cursor:ew-resize}
+.layer{background:var(--white)}
+.js .layer{grid-area:1/1}
+.js .layer.after{clip-path:inset(0 0 0 var(--pos,50%))}
+.layer-tag{transition:opacity .2s}.layer-tag.off{opacity:0}
+.layer.before{background:#FAF5F1}
+@media (max-width:560px){.cmp-layers{grid-template-columns:1fr}}
+.layer-tag{position:absolute;top:14px;z-index:4;pointer-events:none}
+.layer-tag.l{left:14px}.layer-tag.r{right:14px}
+html:not(.js) .layer-tag{display:none}
+.divider{position:absolute;top:0;bottom:0;left:var(--pos,50%);width:0;z-index:5;pointer-events:none}
+html:not(.js) .divider{display:none}
+.divider::before{content:"";position:absolute;top:0;bottom:0;left:-1.5px;width:3px;background:var(--cherry)}
+.knob{position:absolute;z-index:6;pointer-events:none;top:50%;left:clamp(26px,var(--pos,50%),calc(100% - 26px));transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:var(--cherry);color:var(--white);display:grid;place-items:center;box-shadow:0 6px 18px rgba(126,0,20,.4);border:3px solid var(--white)}
+.knob svg{width:22px;height:22px}
+.cmp.focus-ring .knob{outline:3px solid var(--ink);outline-offset:3px}
+.range-row{display:flex;align-items:center;gap:14px;margin-top:16px;flex-wrap:wrap}
+.range-row label{font-weight:700;font-size:.92rem}
+.range-row .ends{display:flex;justify-content:space-between;font-size:.8rem;color:var(--ink-2);width:100%}
+input[type=range]{-webkit-appearance:none;appearance:none;flex:1 1 220px;height:44px;background:transparent;cursor:pointer;margin:0}
+input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:6px;background:linear-gradient(90deg,var(--ink-2) 0 var(--pos,50%),var(--cherry) var(--pos,50%) 100%)}
+input[type=range]::-moz-range-track{height:6px;border-radius:6px;background:var(--cherry)}
+input[type=range]::-moz-range-progress{height:6px;border-radius:6px;background:var(--ink-2)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:28px;height:28px;border-radius:50%;background:var(--white);border:4px solid var(--cherry);margin-top:-11px}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--white);border:4px solid var(--cherry)}
+input[type=range]:focus-visible{outline:3px solid var(--ink);outline-offset:4px}
+html:not(.js) .js-only{display:none!important}
+
+/* Profile excerpt */
+.excerpt{padding:clamp(56px,7vw,64px) clamp(18px,4vw,44px) clamp(24px,4vw,40px);font-family:var(--body);color:#111;min-height:100%}
+.ex-row{display:flex;align-items:center;gap:clamp(14px,3vw,24px)}
+.ex-av{width:clamp(64px,10vw,92px);height:clamp(64px,10vw,92px);border-radius:50%;flex:none;box-shadow:0 0 0 3px var(--white),0 0 0 5px #E1306C}
+.ex-handle{font-size:clamp(.8rem,1.4vw,.9rem);color:#555;font-weight:500}
+.ex-name{font-weight:700;font-size:clamp(1.05rem,2.3vw,1.45rem);line-height:1.2;margin-top:2px}
+.ex-lines{margin-top:clamp(16px,2.4vw,22px);display:grid;gap:4px;font-size:clamp(.98rem,2vw,1.2rem);line-height:1.4}
+.ex-lines .ret{color:var(--ig-blue)}
+.ex-lines .promo{font-weight:700;letter-spacing:.01em}
+.ex-link{margin-top:clamp(16px,2.4vw,22px);padding-top:14px;border-top:1px solid #eee;display:flex;align-items:center;gap:8px;font-weight:700;font-size:clamp(.95rem,1.9vw,1.1rem)}
+.ex-link svg{width:18px;height:18px;flex:none}
+.ex-link .dom{color:#111}
+.ex-link a{color:var(--cherry);text-decoration:underline;text-decoration-thickness:2px}
+.ex-row,.ex-lines>div,.ex-link{transition:background-color .3s,box-shadow .3s;border-radius:8px}
+.hl-on{background:#FFF0F4;box-shadow:0 0 0 2px var(--cherry),0 0 0 6px #FFF0F4}
+.callouts{display:grid;gap:10px}
+.callouts .lbl{font-weight:700;font-size:.92rem;margin-bottom:4px}
+.co{appearance:none;width:100%;text-align:left;display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;min-height:56px;padding:12px 16px;border-radius:12px;background:var(--white);border:2px solid transparent;font:600 1rem/1.25 var(--body);color:var(--ink);cursor:pointer}
+.co .n{width:28px;height:28px;border-radius:50%;background:var(--pink);color:var(--cherry);display:grid;place-items:center;font-size:.85rem;font-weight:700}
+.co[aria-pressed="true"]{border-color:var(--cherry)}
+.co[aria-pressed="true"] .n{background:var(--cherry);color:var(--white)}
+.co svg{width:18px;height:18px;color:var(--cherry)}
+.co-out{background:var(--white);border-radius:12px;padding:16px 18px;min-height:96px;font-size:.98rem;border-left:4px solid var(--cherry)}
+.co-out b{display:block;color:var(--cherry);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px}
+.fullview{margin-top:8px}
+
+.still{margin-top:18px;background:var(--white);border-radius:14px;padding:4px 16px}
+.still summary{cursor:pointer;font-weight:700;min-height:48px;display:flex;align-items:center;color:var(--cherry)}
+.still img{border-radius:10px;width:100%;height:auto;margin:6px 0 4px}
+.hl-fig{margin:14px 0 0}.hl-fig img{width:100%;height:auto;border-radius:14px}.hl-fig figcaption{font-size:.8rem;color:var(--ink-2);margin-top:8px}
+/* Sticky header so the language switch is always reachable */
+body>header.band{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--cream) 92%,transparent);-webkit-backdrop-filter:saturate(1.4) blur(10px);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid transparent}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:21;background:var(--cream)}
+body>header.band .top{padding-block:12px}
+main section,footer{scroll-margin-top:76px}
+/* Language switch */
+.top{flex-wrap:nowrap}
+.top nav{margin-left:auto}
+.lang{display:inline-flex;align-items:center;gap:2px;background:var(--white);border:1.5px solid var(--cherry);border-radius:999px;padding:3px;flex:none}
+.lang span{color:var(--line);padding:0 1px}
+.lang button{appearance:none;border:0;background:transparent;color:var(--cherry);font:700 .88rem/1 var(--body);min-height:36px;min-width:44px;padding:0 12px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--cherry);color:var(--white)}
+.lang button:not([aria-pressed="true"]):hover{background:var(--pink)}
+.lang button[lang="ko"]{font-family:"Pretendard","Noto Sans KR",var(--body)}
+/* Korean */
+.ko-only{display:none}
+html[lang="ko"] .ko-only{display:block}
+.ko-points{margin-top:18px;background:var(--white);border-radius:14px;padding:18px 20px;border-left:4px solid var(--cherry)}
+.ko-points h3{font-size:1.2rem;margin-bottom:10px}
+.ko-points ul{margin:0;padding:0;list-style:none;display:grid;gap:10px;font-size:.98rem}
+.ko-points b{color:var(--cherry)}
+.hl-btn span small{display:block;font-size:.78rem;font-weight:500;color:var(--ink-2);margin-top:2px}
+html[lang="ko"]{--display:"Playfair Display","Noto Serif KR","Nanum Myeongjo",serif;--body:"Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif}
+html[lang="ko"] body{word-break:keep-all;overflow-wrap:break-word;line-height:1.7}
+html[lang="ko"] *{font-synthesis-style:none}
+html[lang="ko"] h1,html[lang="ko"] h2,html[lang="ko"] h3{line-height:1.25;letter-spacing:-.025em}
+html[lang="ko"] h2{font-size:clamp(1.9rem,4.6vw,3.2rem)}
+html[lang="ko"] .eyebrow,html[lang="ko"] th,html[lang="ko"] .mp .q,html[lang="ko"] .co-out b{letter-spacing:.04em}
+html[lang="ko"] .hero .summary{max-width:36ch}
+html[lang="ko"] .lede{line-height:1.75}
+@media (max-width:720px){.top{gap:10px}.top .mark{font-size:1rem}}
+@media (max-width:480px){.hl-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}.hl-btn{min-width:0;font-size:.82rem}.hl-btn i{width:58px;height:58px}.hl-btn svg{width:26px;height:26px}}
+/* Dialog for full mockup */
+dialog{border:0;border-radius:20px;padding:0;max-width:min(440px,calc(100vw - 32px));max-height:calc(100vh - 32px);background:var(--cream);color:var(--ink)}
+dialog::backdrop{background:rgba(33,22,23,.6)}
+.dlg-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 16px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--cream);z-index:2}
+.dlg-head b{font-size:.95rem}
+.dlg-body{padding:16px;overflow:auto}
+
+/* Phone mockup (full proposed profile) */
+.phone-mock{background:var(--ink);border-radius:38px;padding:11px;max-width:360px;width:100%;margin:0 auto;box-shadow:0 30px 60px -30px rgba(33,22,23,.5)}
+.phone-mock .scr{background:var(--white);border-radius:28px;overflow:hidden;color:#111;font-size:13px;line-height:1.38}
+.pm-top{display:flex;justify-content:center;align-items:center;gap:6px;padding:14px 14px 8px;font-weight:700;font-size:15px}
+.pm-top svg{width:15px;height:15px;color:#3897F0}
+.pm-head{display:flex;align-items:center;gap:16px;padding:6px 14px}
+.pm-head .av{width:76px;height:76px;border-radius:50%;box-shadow:0 0 0 2px var(--white),0 0 0 4px #E1306C;flex:none}
+.pm-stats{display:flex;gap:16px;text-align:center;font-size:12px}
+.pm-stats b{display:block;font-size:15px}
+.pm-bio{padding:8px 14px 0}
+.pm-bio .nm{font-weight:700}
+.pm-bio a{color:var(--cherry);font-weight:700;text-decoration:none}
+.pm-bio a:hover{text-decoration:underline}
+.pm-btns{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:12px 14px 4px}
+.pm-btns span{background:#EFEFEF;border-radius:8px;text-align:center;padding:7px 0;font-weight:700;font-size:12.5px}
+.pm-btns span:first-child{background:#4A5DF9;color:#fff}
+.pm-hl{display:flex;gap:12px;padding:12px 14px;overflow:hidden}
+.pm-hl div{text-align:center;font-size:11px;flex:none;width:60px}
+.pm-hl i{width:58px;height:58px;border-radius:50%;background:var(--pink);border:2px solid #ddd;display:grid;place-items:center;margin-bottom:4px;box-shadow:inset 0 0 0 3px var(--white)}
+.pm-hl svg{width:24px;height:24px;color:var(--cherry)}
+.pm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;border-top:1px solid #eee;padding-top:2px}
+.pm-grid .t{aspect-ratio:4/5;position:relative;display:flex;align-items:flex-end;padding:7px;font:italic 800 13px/1.05 var(--display);overflow:hidden}
+.pm-grid .t .pin{position:absolute;top:6px;right:6px;width:14px;height:14px;color:#fff;filter:drop-shadow(0 1px 1px rgba(0,0,0,.35))}
+.mock-label{font-size:.8rem;color:var(--ink-2);text-align:center;margin-top:12px}
+
+/* Tiles (pinned concepts) shared art */
+.t1{background:var(--cherry);color:var(--pink)}
+.t2{background:var(--pink);color:var(--cherry)}
+.t3{background:var(--cream-2);color:var(--ink)}
+.t4{background:#F7C6D5;color:var(--cherry-dk)}
+.t5{background:var(--ink);color:var(--pink)}
+.t6{background:#FFE9EF;color:var(--cherry)}
+
+/* Profile setup section */
+.setup-grid{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:clamp(28px,6vw,80px);margin-top:44px;align-items:start}
+@media (max-width:900px){.setup-grid{grid-template-columns:1fr}}
+.hl-row{display:flex;gap:clamp(10px,2.5vw,22px);flex-wrap:wrap;margin-top:16px}
+.hl-btn{appearance:none;background:none;border:0;padding:4px;display:grid;justify-items:center;gap:8px;cursor:pointer;font:600 .92rem/1.2 var(--body);color:var(--ink);min-width:76px}
+.hl-btn i{width:72px;height:72px;border-radius:50%;background:var(--pink);display:grid;place-items:center;box-shadow:inset 0 0 0 4px var(--white),0 0 0 2px var(--line);transition:box-shadow .2s,transform .2s}
+.hl-btn svg{width:30px;height:30px;color:var(--cherry)}
+.hl-btn[aria-selected="true"] i{box-shadow:inset 0 0 0 4px var(--white),0 0 0 3px var(--cherry)}
+.hl-btn[aria-selected="true"] span{color:var(--cherry)}
+.panel{margin-top:16px;background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:20px;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start}
+.panel .story{width:76px;aspect-ratio:9/16;border-radius:10px;display:grid;place-items:center;padding:8px;text-align:center;font:italic 800 .78rem/1.05 var(--display)}
+.panel h4{margin:0 0 4px;font-size:1.05rem}
+.panel ul{margin:8px 0 0;padding-left:18px;color:var(--ink-2);font-size:.95rem}
+.pin-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px}
+.pin-btn{appearance:none;border:2px solid transparent;border-radius:12px;padding:0;background:none;cursor:pointer;text-align:left;font:inherit;color:inherit;overflow:hidden}
+.pin-btn .art{aspect-ratio:4/5;display:flex;flex-direction:column;justify-content:space-between;padding:12px;font:italic 800 clamp(1rem,2.2vw,1.35rem)/1.02 var(--display)}
+.pin-btn .art svg{width:60%;align-self:center;height:auto}
+.pin-btn .cap{display:block;padding:8px 2px 2px;font:700 .88rem/1.2 var(--body)}
+.pin-btn[aria-selected="true"]{border-color:var(--cherry)}
+.pin-btn[aria-selected="true"] .cap{color:var(--cherry)}
+.sub-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-top:40px}
+.sub-h:first-child{margin-top:0}
+.sub-h small{color:var(--ink-2);font-size:.8rem}
+@media (max-width:480px){.pin-row{gap:8px}.pin-btn .art{padding:8px}}
+
+/* Storyboard */
+.reel{background:var(--cherry);color:var(--cream)}
+.reel h2{color:var(--cream)}
+.reel .eyebrow{color:var(--pink)}
+.reel .lede{color:#FBDDE5}
+.frames{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(10px,2vw,22px);margin-top:40px}
+.frame{background:var(--cream);color:var(--ink);border-radius:16px;padding:10px;transition:transform .35s cubic-bezier(.2,.7,.2,1),opacity .35s,box-shadow .35s;opacity:.55}
+.frame.on{opacity:1;transform:translateY(-6px);box-shadow:0 0 0 4px var(--pink),0 20px 40px -20px rgba(0,0,0,.5)}
+.frame img{width:100%;height:auto;border-radius:10px;aspect-ratio:487/676;object-fit:cover}
+.frame .fl{display:flex;justify-content:space-between;align-items:center;font:700 .82rem/1.2 var(--body);padding:10px 4px 2px}
+.frame .fl span:last-child{color:var(--cherry);font-variant-numeric:tabular-nums}
+.step-ctl{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;align-items:center}
+.reel .btn{border-color:var(--cream);background:transparent;color:var(--cream)}
+.reel .btn:hover{background:var(--cherry-dk)}
+.reel .btn[aria-selected="true"]{background:var(--cream);color:var(--cherry);border-color:var(--cream)}
+.reel .btn.play{background:var(--pink);color:var(--cherry-dk);border-color:var(--pink)}
+.reel :focus-visible{outline-color:var(--cream)}
+.direction{margin-top:20px;max-width:62ch;font-size:1.08rem;min-height:3.4em}
+.direction b{font-family:var(--display);font-style:italic;font-size:1.3rem;display:block;margin-bottom:4px}
+.progress{height:4px;background:rgba(255,255,255,.25);border-radius:4px;margin-top:20px;max-width:420px;overflow:hidden}
+.progress i{display:block;height:100%;width:33.33%;background:var(--pink);transition:width .35s}
+@media (max-width:560px){.frames{grid-template-columns:1fr;max-width:340px}.frame{opacity:1}.frame:not(.on){display:none}}
+
+/* Retail journey */
+.journey{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:40px;position:relative}
+.j-step{appearance:none;background:none;border:0;text-align:left;cursor:pointer;padding:0 18px 0 0;font:inherit;color:inherit}
+.j-step .dot{display:flex;align-items:center;gap:0}
+.j-step .dot i{width:52px;height:52px;border-radius:50%;background:var(--white);border:2px solid var(--cherry);color:var(--cherry);display:grid;place-items:center;flex:none;transition:background-color .25s,color .25s}
+.j-step .dot i svg{width:24px;height:24px}
+.j-step .dot em{flex:1;height:2px;background:var(--line);position:relative;overflow:hidden}
+.j-step .dot em::after{content:"";position:absolute;inset:0;background:var(--cherry);transform:scaleX(0);transform-origin:left;transition:transform .45s ease}
+.j-step.done .dot em::after{transform:scaleX(1)}
+.j-step:last-child .dot em{visibility:hidden}
+.j-step .t{display:block;margin-top:14px;font:italic 800 1.35rem/1.1 var(--display)}
+.j-step .k{display:block;font-size:.82rem;color:var(--ink-2);margin-top:4px}
+.j-step[aria-selected="true"] .dot i,.j-step.done .dot i{background:var(--cherry);color:var(--white)}
+.j-step[aria-selected="true"] .t{color:var(--cherry)}
+.j-detail{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,56px);margin-top:36px;align-items:center}
+.j-copy p{font-size:1.1rem;max-width:46ch}
+.j-copy .note{font-size:.88rem;color:var(--ink-2);margin-top:12px}
+.j-art{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:16px;min-height:260px;display:grid;place-items:center}
+.j-art{display:block;padding:12px}.j-art img{width:100%;max-width:340px;height:auto;margin:0 auto;border-radius:12px;aspect-ratio:476/681;object-fit:cover}
+.j-art figcaption{font-size:.78rem;color:var(--ink-2);margin-top:8px;text-align:center}
+.metric-line{margin-top:40px;padding:22px 24px;background:var(--pink);border-radius:var(--radius);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.metric-line p{font:italic 700 1.3rem/1.25 var(--display);color:var(--cherry-dk);max-width:40ch}
+@media (max-width:760px){
+  .journey{grid-template-columns:1fr;gap:6px}
+  .j-step{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;padding:8px 0}
+  .j-step .dot{grid-row:span 2}.j-step .dot em{display:none}
+  .j-step .t{margin-top:4px}
+  .j-detail{grid-template-columns:1fr}
+}
+
+/* Rollout */
+.tbl-wrap{overflow-x:auto;margin-top:32px;border-radius:var(--radius);border:1px solid var(--line);background:var(--white)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:.98rem}
+th,td{padding:16px 18px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+th{font:700 .74rem/1.2 var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);background:var(--cream-2)}
+td.pr{font:italic 900 1.6rem/1 var(--display);color:var(--cherry);width:72px;font-variant-numeric:tabular-nums}
+.pill{display:inline-block;font:700 .78rem/1.2 var(--body);padding:5px 10px;border-radius:999px;white-space:nowrap;margin:0 4px 4px 0}
+.pill.hi{background:var(--cherry);color:var(--white)}
+.pill.md{background:var(--pink);color:var(--cherry-dk)}
+.pill.lo{background:var(--white);border:1px solid var(--line);color:var(--ink-2)}
+.pill.me{background:var(--cream-2);color:var(--ink)}
+.mplan{margin-top:48px}
+.mplan-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:18px}
+.mp{border-top:3px solid var(--cherry);padding-top:14px}
+.mp .q{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--ink-2)}
+.mp .m{font:italic 800 1.35rem/1.15 var(--display);margin:6px 0 8px}
+.mp p{font-size:.95rem;color:var(--ink-2)}
+@media (max-width:760px){.mplan-grid{grid-template-columns:1fr}}
+
+/* Footer */
+footer{background:var(--ink);color:var(--cream)}
+footer .wrap{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:40px;padding-block:64px 48px}
+footer h2{color:var(--cream);font-size:clamp(1.8rem,4vw,2.6rem)}
+footer a{color:var(--pink)}
+footer a:hover{color:var(--white)}
+footer ul{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:10px}
+footer .fine{grid-column:1/-1;font-size:.82rem;color:#CDBDBA;border-top:1px solid #3B2B2C;padding-top:20px}
+footer :focus-visible{outline-color:var(--pink)}
+footer .btn{border-color:var(--pink);background:transparent;color:var(--pink);margin-top:22px}
+footer .btn:hover{background:var(--pink);color:var(--ink)}
+@media (max-width:760px){footer .wrap{grid-template-columns:1fr}}
+
+/* Scroll reveal: only applied by JS to below-the-fold items */
+@media (prefers-reduced-motion:no-preference){
+  .rv{transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
+  .rv.pre{opacity:0;transform:translateY(22px)}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:0s!important;animation-duration:0s!important;animation-delay:0s!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#compare" data-ko="개선 전후 비교로 바로가기">Skip to the before-and-after</a>
+
+<!-- SVG icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></symbol>
+    <symbol id="i-pouch" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M6 5h12l-1 15a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2L6 5Z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 8h12M9 2.5l1.5 2.5M15 2.5 13.5 5"/><path fill="currentColor" d="M10 12h4v5h-4z"/></symbol>
+    <symbol id="i-recipe" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M7 3v6a3 3 0 0 0 3 3v9M10 3v6M13 3v6a3 3 0 0 1-3 3"/><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M18 21V3c-2 1.5-3 4-3 7v3h3"/></symbol>
+    <symbol id="i-press" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M4 4h13v15a2 2 0 0 0 2 2H6a2 2 0 0 1-2-2V4Z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M17 8h3v11a2 2 0 0 1-2 2M7 8h7M7 12h7M7 16h4"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></symbol>
+    <symbol id="i-arrows" viewBox="0 0 24 24"><path fill="currentColor" d="M9 6 3 12l6 6V6Zm6 0v12l6-6-6-6Z"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="m16 16 4.5 4.5"/></symbol>
+    <symbol id="i-crunch" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3" fill="currentColor"/></symbol>
+    <symbol id="i-cart" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 4h2l2.4 11h10.2L20 7H6.3"/><circle cx="9" cy="19" r="1.6" fill="currentColor"/><circle cx="17" cy="19" r="1.6" fill="currentColor"/></symbol>
+    <symbol id="i-reel" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path fill="currentColor" d="m10 9 5 3-5 3V9Z"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M7 4.5v15l12-7.5-12-7.5Z"/></symbol>
+    <symbol id="i-ext" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+    <symbol id="i-verified" viewBox="0 0 24 24"><path fill="currentColor" d="m12 1.5 2.6 2 3.2-.4.9 3.1 2.8 1.6-1.2 3 1.2 3-2.8 1.6-.9 3.1-3.2-.4-2.6 2-2.6-2-3.2.4-.9-3.1-2.8-1.6 1.2-3-1.2-3 2.8-1.6.9-3.1 3.2.4 2.6-2Z"/><path fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="m8 12 2.8 2.8L16.5 9"/></symbol>
+    <symbol id="i-pinned" viewBox="0 0 24 24"><path fill="currentColor" d="M15 3l6 6-3 1-4 4 1 5-2 1-4-5-5 5-1-1 5-5-5-4 1-2 5 1 4-4 1-3Z"/></symbol>
+    <symbol id="pickle" viewBox="0 0 120 40"><rect x="2" y="4" width="116" height="32" rx="16" fill="#4E6B2B"/><g fill="#7C9A45"><circle cx="22" cy="14" r="3"/><circle cx="44" cy="26" r="3"/><circle cx="66" cy="13" r="3"/><circle cx="88" cy="25" r="3"/><circle cx="104" cy="14" r="2.5"/></g><rect x="10" y="9" width="70" height="5" rx="2.5" fill="#94B35A" opacity=".6"/></symbol>
+    <symbol id="jar" viewBox="0 0 80 110"><rect x="14" y="2" width="52" height="16" rx="4" fill="#AA001B"/><rect x="8" y="16" width="64" height="90" rx="12" fill="#F2F0D8" stroke="#211617" stroke-width="2"/><g fill="#4E6B2B"><rect x="16" y="30" width="12" height="70" rx="6"/><rect x="31" y="26" width="12" height="74" rx="6"/><rect x="46" y="30" width="12" height="70" rx="6"/></g><rect x="14" y="48" width="52" height="34" rx="6" fill="#FFD8E4" stroke="#AA001B" stroke-width="2"/><text x="40" y="62" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-weight="700" font-size="9" fill="#AA001B">HOT GIRL</text><text x="40" y="74" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-weight="700" font-size="9" fill="#AA001B">PICKLES</text></symbol>
+    <symbol id="pouch" viewBox="0 0 80 110"><path d="M8 10h64l-4 92a6 6 0 0 1-6 6H18a6 6 0 0 1-6-6L8 10Z" fill="#FFD8E4" stroke="#AA001B" stroke-width="2.5"/><path d="M8 10h64v8H8z" fill="#AA001B"/><path d="M20 4l3 6M60 4l-3 6" stroke="#211617" stroke-width="2" stroke-linecap="round"/><text x="40" y="52" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-weight="700" font-size="10" fill="#AA001B">HOT GIRL</text><text x="40" y="65" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-weight="700" font-size="10" fill="#AA001B">PICKLES</text><text x="40" y="84" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="7" fill="#211617">GRAB &amp; GO</text></symbol>
+  </defs>
+</svg>
+
+<header class="band">
+  <div class="wrap top">
+    <a class="mark" href="#top">Good Girl Snacks</a>
+    <nav aria-label="Case study sections" data-ko-aria-label="케이스 스터디 섹션">
+      <a href="#audit" data-ko="진단">Audit</a>
+      <a href="#compare" data-ko="개선 전후">Before &amp; after</a>
+      <a href="#setup" data-ko="프로필 구성">Profile setup</a>
+      <a href="#reel" data-ko="릴스">Reel</a>
+      <a href="#journey" data-ko="구매 동선">Retail journey</a>
+      <a href="#test" data-ko="실행 계획">Test plan</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language / 언어">
+      <button type="button" data-lang="en" lang="en" aria-pressed="true" aria-label="English">EN</button><span aria-hidden="true">|</span><button type="button" data-lang="ko" lang="ko" aria-pressed="false" aria-label="한국어 (Korean)">한국어</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<!-- 1. HERO -->
+<section class="band hero" aria-labelledby="hero-title">
+  <div class="wrap">
+    <div class="hero-text">
+      <div>
+        <p class="eyebrow beat1" data-ko="인스타그램 케이스 스터디 · 개인 포트폴리오 프로젝트">Instagram case study · Independent portfolio work</p>
+        <h1 id="hero-title" class="beat1">Good Girl Snacks</h1>
+        <p class="sub beat1" data-ko="인스타그램 프로필 진단 및 개선안">Instagram Audit &amp; Redesign</p>
+      </div>
+      <div class="hero-side">
+        <p class="summary beat1" data-ko="Hot Girl Pickles를 인스타그램에서 처음 발견한 고객이 가까운 판매처까지 쉽게 찾을 수 있도록 프로필과 콘텐츠 흐름을 재설계했습니다.">I redesigned the path from discovering Hot Girl Pickles on Instagram to finding them in stores.</p>
+        <p class="byline beat1" data-ko="&lt;b&gt;Abhilasha Kashyap&lt;/b&gt; · 개인 포트폴리오 케이스 스터디"><b>Abhilasha Kashyap</b> · Independent portfolio case study</p>
+        <div class="cta-row beat3">
+          <a class="btn primary" href="#compare" data-goto="compare"><span data-ko="개선안 살펴보기">Explore the redesign</span>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <figure class="hero-art beat2">
+      <img src="assets/hero-cover.jpg" width="1536" height="1024" fetchpriority="high" data-ko-alt="케이스 스터디 커버: 분홍 배경 위의 Hot Girl Pickles 병 제품과, Find Pickles Near You 링크가 있는 개선안 goodgirlsnacks 프로필을 보여주는 휴대폰." alt="Case study cover: a jar of Hot Girl Pickles on a pink set beside a phone showing the proposed goodgirlsnacks profile with a Find Pickles Near You link.">
+      <figcaption data-ko="케이스 스터디 커버입니다. 휴대폰 화면은 개선안 프로필의 포트폴리오 목업이며, 이미지 속 영문은 미국 고객이 보게 될 문구입니다.">Case study cover. The phone shows the proposed profile as a portfolio mockup.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 2. AUDIT -->
+<section id="audit" class="band section" aria-labelledby="audit-title" style="background:var(--white)">
+  <div class="wrap">
+    <p class="eyebrow rv" data-ko="01 · 진단 결과">01 · Audit finding</p>
+    <h2 id="audit-title" class="rv" style="margin-top:12px" data-ko="판매처 정보가 먼저 보였던 프로필">The bio led with retailers</h2>
+    <div class="audit-grid">
+      <figure class="evidence rv" style="margin:0">
+        <div class="mark-box">
+          <img src="assets/original-profile-crop.jpg" width="710" height="497" loading="lazy" data-ko-alt="기존 프로필 스크린샷 일부. 프로필 이름은 good girl snacks, 소개문은 @walmart @sprouts @wholefoods @erewhon &amp; more!와 SHOP NEW! GRAB &amp; GO HOT GIRL PICKLES, 링크는 goodgirlsnacks.com and 1 more입니다." alt="Cropped screenshot of the original profile. Display name good girl snacks; bio reads @walmart @sprouts @wholefoods @erewhon and more, then SHOP NEW! GRAB and GO HOT GIRL PICKLES; link reads goodgirlsnacks.com and 1 more.">
+          <div class="hl-ret" aria-hidden="true"><b data-ko="판매처 우선">Retailers first</b></div>
+        </div>
+        <figcaption data-ko="진단에 사용한 기존 프로필의 특정 시점 스크린샷입니다. 프로필 상단만 잘라 사용했으며, 보는 사람에 따라 달라지는 계정 정보 행은 제외했습니다. 스크린샷 속 영문은 원문 그대로입니다.">Original profile, point-in-time screenshot supplied for the audit. Cropped to the profile header; account-specific rows removed.</figcaption>
+      </figure>
+      <div>
+        <p class="lede rv" data-ko="기존 소개문은 판매처 목록과 Grab &amp;amp; Go 신제품 안내로 시작했습니다. 구매처를 찾는 고객에게는 유용했지만, 처음 방문한 고객은 제품이 무엇이고 어떤 매력이 있는지 한눈에 파악하기 어려웠습니다. 개선안에서는 제품명과 아삭한 식감을 먼저 보여주고, 판매처 정보와 매장 검색 링크를 이어 배치했습니다.">The original bio listed retailers first and promoted the new Grab &amp; Go format. Those were useful buying cues, but a first-time visitor had to read through the list to understand what Good Girl Snacks sells and why they might want to try it.</p>
+        <ul class="obs">
+          <li class="rv"><span class="ic" aria-hidden="true"><svg><use href="#i-search"/></svg></span><div data-ko="&lt;b&gt;검색과 인지.&lt;/b&gt;기존 프로필 이름은 계정 핸들과 같았습니다. 패키지에 적힌 제품명 &lt;b style=&quot;display:inline&quot;&gt;Hot Girl Pickles&lt;/b&gt;를 이름에 추가해, 매장에서 제품을 본 고객이 계정을 바로 연결할 수 있도록 제안했습니다."><b>Search and recognition.</b>The original display name matched the handle. Adding <b style="display:inline">Hot Girl Pickles</b> introduces the product wording shoppers see on the packaging.</div></li>
+          <li class="rv"><span class="ic" aria-hidden="true"><svg><use href="#i-crunch"/></svg></span><div data-ko="&lt;b&gt;제품 가치.&lt;/b&gt;아삭한 식감과 병·파우치 두 가지 제품 형태가 고객이 관심을 가질 이유가 됩니다."><b>Product value.</b>Crunch and the two formats give shoppers a reason to pay attention.</div></li>
+          <li class="rv"><span class="ic" aria-hidden="true"><svg><use href="#i-cart"/></svg></span><div data-ko="&lt;b&gt;구매 행동.&lt;/b&gt;일반 도메인 대신 매장 검색 페이지로 바로 연결하면 고객이 다음에 할 행동이 더 분명해집니다."><b>Shopping action.</b>A direct locator link gives the shopper a clearer next step than a generic domain.</div></li>
+        </ul>
+        <p class="scope rv" data-ko="&lt;b&gt;범위 안내.&lt;/b&gt; 아삭하고 짭짤한 간식을 찾는 미국 고객을 주요 타깃으로 가정했습니다. 제공된 프로필 스크린샷과 브랜드의 공개 온라인 스토어, 매장 검색 페이지를 바탕으로 진단했습니다. 게시 빈도, 고정 게시물 여부, 계정 성과는 확인하지 않았습니다."><b>Scope note.</b> Working audience assumption: U.S. shoppers looking for a crunchy, savory snack. The audit used the supplied profile screenshot and the brand’s public shop and store locator. Posting cadence, pin status, and account performance were not verified.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. COMPARISON -->
+<section id="compare" class="band section stage" aria-labelledby="cmp-title" tabindex="-1">
+  <div class="wrap">
+    <div class="stage-head">
+      <div>
+        <p class="eyebrow" data-ko="02 · 인터랙티브 개선 전후 비교">02 · Interactive before and after</p>
+        <h2 id="cmp-title" style="margin-top:12px" data-ko="제품의 매력이 먼저 보이는 소개문">From retailer list to product promise</h2>
+      </div>
+      <p class="lede" style="max-width:40ch" data-ko="구분선을 드래그하거나 버튼을 눌러 비교해 보세요. 왼쪽은 기존 프로필, 오른쪽은 제가 제안한 개선안입니다.">Drag the divider, or use the buttons. The original sits on the left and my proposal on the right.</p>
+    </div>
+
+    <div class="cmp-shell">
+      <div style="min-width:0">
+        <div class="controls js-only" role="group" aria-label="Comparison view" data-ko-aria-label="비교 화면 보기">
+          <button type="button" class="btn" id="btn-before" aria-pressed="false" data-ko="기존">Before</button>
+          <button type="button" class="btn" id="btn-after" aria-pressed="false" data-ko="개선안">After</button>
+          <span class="sep" aria-hidden="true"></span>
+          <button type="button" class="btn primary" id="btn-play"><svg aria-hidden="true"><use href="#i-play"/></svg><span data-ko="전환 재생">Play reveal</span></button>
+        </div>
+
+        <div class="cmp" id="cmp">
+          <span class="layer-tag l tag" data-ko="기존">Original</span>
+          <span class="layer-tag r tag red" data-ko="개선안">Proposal</span>
+          <div class="cmp-layers" id="cmp-layers">
+            <div class="layer before" id="layer-before" aria-label="Original profile excerpt" data-ko-aria-label="기존 프로필 일부">
+              <div class="excerpt">
+                <span class="sr-only" data-ko="기존 프로필 일부.">Original profile excerpt.</span>
+                <div class="ex-row">
+                  <img class="ex-av" src="assets/brand-avatar.jpg" width="240" height="240" alt="">
+                  <div><div class="ex-handle">goodgirlsnacks</div><div class="ex-name">good girl snacks</div></div>
+                </div>
+                <div class="ex-lines">
+                  <div><span aria-hidden="true">🛒</span><span class="ret">@walmart @sprouts @wholefoods @erewhon</span> &amp; more!</div>
+                  <div class="promo">SHOP NEW! GRAB &amp; GO HOT GIRL PICKLES</div>
+                </div>
+                <div class="ex-link"><svg aria-hidden="true"><use href="#i-link"/></svg><span class="dom">goodgirlsnacks.com <span style="font-weight:500">and 1 more</span></span></div>
+              </div>
+            </div>
+            <div class="layer after" id="layer-after" aria-label="Proposed profile excerpt" data-ko-aria-label="개선안 프로필 일부">
+              <div class="excerpt">
+                <span class="sr-only" data-ko="개선안 프로필 일부.">Proposed profile excerpt.</span>
+                <div class="ex-row" data-row="name">
+                  <img class="ex-av" src="assets/brand-avatar.jpg" width="240" height="240" alt="">
+                  <div><div class="ex-handle">goodgirlsnacks</div><div class="ex-name">good girl snacks | Hot Girl Pickles</div></div>
+                </div>
+                <div class="ex-lines">
+                  <div data-row="benefit">Hot Girl Pickles for crunchy cravings<br>Bold flavors in jars &amp; fork-free pouches</div>
+                  <div data-row="retail">At Sprouts &amp; Whole Foods</div>
+                  <div data-row="cue">Find your pickle fix near you ↓</div>
+                </div>
+                <div class="ex-link" data-row="locator"><svg aria-hidden="true"><use href="#i-link"/></svg><a id="locator-link" href="https://goodgirlsnacks.com/pages/store-locator" target="_blank" rel="noopener">Find Pickles Near You</a></div>
+              </div>
+            </div>
+          </div>
+          <div class="divider" id="divider" aria-hidden="true"></div><span class="knob js-only" aria-hidden="true"><svg><use href="#i-arrows"/></svg></span>
+        </div>
+
+        <div class="range-row js-only">
+          <label for="cmp-range" data-ko="구분선 위치">Divider position</label>
+          <input type="range" id="cmp-range" min="0" max="100" step="1" value="50" aria-describedby="cmp-help">
+          <div class="ends" aria-hidden="true"><span data-ko="← 개선안 더 보기">← More proposal</span><span data-ko="기존 더 보기 →">More original →</span></div>
+          <p id="cmp-help" class="sr-only" data-ko="왼쪽 화살표 키를 누르면 개선안이, 오른쪽 화살표 키를 누르면 기존 프로필이 더 많이 보입니다. Home 키는 개선안 전체를, End 키는 기존 프로필 전체를 보여줍니다.">Left arrow reveals more of the proposal. Right arrow reveals more of the original. Home shows the full proposal, End shows the full original.</p>
+        </div>
+        <p class="cmp-note" data-ko="비교를 위해 프로필 일부를 HTML로 재구성했습니다. 양쪽의 글자 크기, 프로필 사진 위치, 카드 크기를 맞췄고 기존 문구는 스크린샷의 원문을 그대로 옮겼습니다. 인스타그램 문구는 미국 고객이 보는 화면과 같도록 영문으로 유지했습니다. 개선안의 링크를 누르면 공식 매장 검색 페이지가 열립니다.">Profile excerpts reconstructed for comparison. Text, avatar position, and card size match on both sides; the original wording comes from the supplied screenshot. The proposed link opens the official store locator.</p>
+        <details class="still">
+          <summary data-ko="정적 소개문 개선 이미지 보기">Show the static bio makeover graphic</summary>
+          <img src="assets/bio-makeover.jpg" width="1536" height="1024" loading="lazy" data-ko-alt="소개문 개선 이미지 From retailer list to product story. 기존(Before)은 판매처 태그와 Grab &amp; Go 안내로 시작하고, 개선안(Proposed)은 good girl snacks | Hot Girl Pickles 이름, 제품 중심의 4줄 소개문, Find Pickles Near You 링크를 보여줍니다." alt="Bio makeover graphic, From retailer list to product story. Before: good girl snacks with @walmart @sprouts @wholefoods @erewhon and more, then SHOP NEW! GRAB and GO HOT GIRL PICKLES. Proposed: good girl snacks | Hot Girl Pickles with the four-line product-first bio and a Find Pickles Near You link.">
+          <p class="cmp-note" data-ko="포트폴리오 목업입니다. 인터랙티브 비교와 같은 내용을 한 장의 이미지로 정리했으며, 이미지 속 영문은 원문 그대로입니다.">Portfolio mockup. Same content as the interactive comparison, as a single image.</p>
+        </details>
+        <section class="ko-points ko-only" aria-labelledby="ko-points-h" lang="ko">
+          <h3 id="ko-points-h">한국어로 보는 개선 포인트</h3>
+          <ul>
+            <li><b>프로필 이름</b> · 제품명 Hot Girl Pickles를 추가해 패키지에서 제품을 본 고객도 계정을 쉽게 알아볼 수 있도록 했습니다.</li>
+            <li><b>제품 매력</b> · 아삭한 식감을 먼저 소개하고, 병 제품과 포크 없이 간편하게 먹을 수 있는 파우치 제품을 함께 보여줍니다.</li>
+            <li><b>판매처 정보</b> · Sprouts와 Whole Foods를 소개문에 남겨 구매처를 찾는 데 필요한 정보를 제공합니다.</li>
+            <li><b>구매 동선</b> · 첫 번째 링크를 매장 검색 페이지로 연결해 가까운 판매처를 바로 확인할 수 있도록 제안했습니다.</li>
+          </ul>
+        </section>
+      </div>
+
+      <aside class="stack" aria-labelledby="co-h">
+        <div class="callouts" role="group" aria-labelledby="co-h">
+          <p class="lbl" id="co-h" data-ko="문구별 개선 이유">Why each line changed</p>
+          <button type="button" class="co" data-co="name" aria-pressed="false"><span class="n">1</span><span data-ko="프로필 이름">Display name</span><svg aria-hidden="true" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" d="m9 6 6 6-6 6"/></svg></button>
+          <button type="button" class="co" data-co="benefit" aria-pressed="false"><span class="n">2</span><span data-ko="제품 매력">Product benefit</span><svg aria-hidden="true" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" d="m9 6 6 6-6 6"/></svg></button>
+          <button type="button" class="co" data-co="retail" aria-pressed="false"><span class="n">3</span><span data-ko="판매처 정보">Retail proof</span><svg aria-hidden="true" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" d="m9 6 6 6-6 6"/></svg></button>
+          <button type="button" class="co" data-co="locator" aria-pressed="false"><span class="n">4</span><span data-ko="매장 검색 링크">Store locator</span><svg aria-hidden="true" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" d="m9 6 6 6-6 6"/></svg></button>
+        </div>
+        <div class="co-out" id="co-out" aria-live="polite"><b>Pick a callout</b>Each one opens the full proposal and highlights the line it explains.</div>
+        <button type="button" class="btn fullview" id="open-full" data-ko="개선안 프로필 전체 보기">View full proposed profile</button>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- 4. PROFILE SETUP -->
+<section id="setup" class="band section" aria-labelledby="setup-title">
+  <div class="wrap">
+    <p class="eyebrow rv" data-ko="03 · 프로필 구성과 고정 게시물">03 · Profile setup and pinned content</p>
+    <h2 id="setup-title" class="rv" style="margin-top:12px" data-ko="처음 방문한 고객이 살펴볼 콘텐츠">What a new shopper sees next</h2>
+    <p class="lede rv" style="margin-top:16px" data-ko="소개문 아래의 하이라이트와 고정 게시물도 같은 순서로 구성했습니다. 어떤 제품인지, 무엇부터 먹어볼지, 어디서 살 수 있는지 차례로 보여줍니다.">Below the bio, the Highlights and pinned posts carry the same order: what it is, which one to try, where to buy it.</p>
+
+    <div class="setup-grid">
+      <div class="rv">
+        <div class="phone-mock" id="full-mock">
+          <div class="scr">
+            <div class="pm-top">goodgirlsnacks <svg aria-label="Verified" data-ko-aria-label="인증된 계정"><use href="#i-verified"/></svg></div>
+            <div class="pm-head">
+              <img class="av" src="assets/brand-avatar.jpg" width="240" height="240" alt="Good Girl Snacks profile picture" data-ko-alt="Good Girl Snacks 프로필 사진">
+              <div class="pm-stats"><div><b>397</b>posts</div><div><b>184K</b>followers</div><div><b>2</b>following</div></div>
+            </div>
+            <div class="pm-bio">
+              <div class="nm">good girl snacks | Hot Girl Pickles</div>
+              Hot Girl Pickles for crunchy cravings<br>Bold flavors in jars &amp; fork-free pouches<br>At Sprouts &amp; Whole Foods<br>Find your pickle fix near you ↓<br>
+              <a href="https://goodgirlsnacks.com/pages/store-locator" target="_blank" rel="noopener">🔗 Find Pickles Near You</a>
+            </div>
+            <div class="pm-btns" aria-hidden="true"><span>Follow</span><span>Message</span></div>
+            <div class="pm-hl" aria-hidden="true">
+              <div><i><svg><use href="#i-pin"/></svg></i>Find Us</div>
+              <div><i><svg><use href="#i-pouch"/></svg></i>Grab &amp; Go</div>
+              <div><i><svg><use href="#i-recipe"/></svg></i>Recipes</div>
+              <div><i><svg><use href="#i-press"/></svg></i>Press</div>
+            </div>
+            <div class="pm-grid" aria-hidden="true">
+              <div class="t t1"><svg class="pin"><use href="#i-pinned"/></svg>Meet the Pickles</div>
+              <div class="t t2"><svg class="pin"><use href="#i-pinned"/></svg>Pick Your Flavor</div>
+              <div class="t t3"><svg class="pin"><use href="#i-pinned"/></svg>Find Us in Stores</div>
+              <div class="t t4">Packed lunch, pickle upgrade</div>
+              <div class="t t5">Tear. Crunch. Repeat.</div>
+              <div class="t t6">Snack board night</div>
+            </div>
+          </div>
+        </div>
+        <p class="mock-label" data-ko="개선안 프로필의 포트폴리오 목업입니다. 화면 속 문구는 미국 고객용 영문 원안이며, 게시물·팔로워·팔로잉 수는 특정 시점 스크린샷의 수치를 그대로 옮겼습니다.">Proposed profile, portfolio mockup. Post, follower, and following counts are carried over from the point-in-time screenshot.</p>
+      </div>
+
+      <div style="min-width:0">
+        <div class="sub-h rv"><h3 data-ko="하이라이트">Highlights</h3><small data-ko="커버를 눌러 스토리 구성을 확인하세요">Tap a cover to preview its Stories</small></div>
+        <figure class="hl-fig rv"><img src="assets/highlight-covers.jpg" width="1536" height="1024" loading="lazy" data-ko-alt="하이라이트 커버 이미지: 위치 핀의 Find Us, 파우치의 Grab &amp; Go, 포크의 Recipes, 신문의 Press 등 네 개의 원형 커버와 Hot Girl Pickles 병·파우치 제품." alt="Highlight covers graphic: four round covers labeled Find Us with a location pin, Grab and Go with a pouch, Recipes with a fork, and Press with a newspaper, beside a jar and pouch of Hot Girl Pickles."><figcaption data-ko="하이라이트 커버 시스템 포트폴리오 목업입니다. 커버 이름은 인스타그램에 표시될 영문 그대로 두고, 아이콘으로 내용을 구분했습니다.">Highlight cover system, portfolio mockup.</figcaption></figure>
+        <div class="hl-row rv" role="tablist" aria-label="Highlight covers" data-ko-aria-label="하이라이트 커버">
+          <button type="button" class="hl-btn" role="tab" id="hl-t-find" aria-controls="hl-panel" aria-selected="true" data-hl="find"><i><svg aria-hidden="true"><use href="#i-pin"/></svg></i><span data-ko="Find Us&lt;small&gt;매장 찾기&lt;/small&gt;">Find Us</span></button>
+          <button type="button" class="hl-btn" role="tab" id="hl-t-grab" aria-controls="hl-panel" aria-selected="false" tabindex="-1" data-hl="grab"><i><svg aria-hidden="true"><use href="#i-pouch"/></svg></i><span data-ko="Grab &amp; Go&lt;small&gt;간편 파우치&lt;/small&gt;">Grab &amp; Go</span></button>
+          <button type="button" class="hl-btn" role="tab" id="hl-t-recipes" aria-controls="hl-panel" aria-selected="false" tabindex="-1" data-hl="recipes"><i><svg aria-hidden="true"><use href="#i-recipe"/></svg></i><span data-ko="Recipes&lt;small&gt;레시피&lt;/small&gt;">Recipes</span></button>
+          <button type="button" class="hl-btn" role="tab" id="hl-t-press" aria-controls="hl-panel" aria-selected="false" tabindex="-1" data-hl="press"><i><svg aria-hidden="true"><use href="#i-press"/></svg></i><span data-ko="Press&lt;small&gt;언론 보도&lt;/small&gt;">Press</span></button>
+        </div>
+        <div class="panel rv" id="hl-panel" role="tabpanel" aria-labelledby="hl-t-find" tabindex="0">
+          <div class="story t1" id="hl-story">Find us near you</div>
+          <div><h4 id="hl-h">Find Us</h4><p id="hl-p">Show where to start a store search.</p><ul id="hl-ul"><li>Story 1: “Where to find us” with a link sticker to the official locator.</li><li>Story 2: Type a ZIP code and pick jars or pouches.</li></ul></div>
+        </div>
+
+        <div class="sub-h rv"><h3 data-ko="고정 게시물">Pinned posts</h3><small data-ko="세 가지 콘셉트입니다. 눌러서 기획안을 확인하세요.">Three concepts. Tap one for its brief.</small></div>
+        <div class="pin-row rv" role="tablist" aria-label="Pinned post concepts" data-ko-aria-label="고정 게시물 콘셉트">
+          <button type="button" class="pin-btn" role="tab" id="pin-t-meet" aria-controls="pin-panel" aria-selected="true" data-pin="meet">
+            <span class="art t1" aria-hidden="true"><span>Meet the Pickles</span><svg viewBox="0 0 170 110"><use href="#jar" x="0" y="0" width="80" height="110"/><use href="#pouch" x="88" y="0" width="80" height="110"/></svg></span>
+            <span class="cap" data-ko="1 · 피클 소개">1 · Meet the Pickles</span></button>
+          <button type="button" class="pin-btn" role="tab" id="pin-t-flavor" aria-controls="pin-panel" aria-selected="false" tabindex="-1" data-pin="flavor">
+            <span class="art t2" aria-hidden="true"><span>Pick Your Flavor</span><svg viewBox="0 0 170 110"><use href="#jar" x="0" y="0" width="80" height="110"/><use href="#jar" x="88" y="0" width="80" height="110"/></svg></span>
+            <span class="cap" data-ko="2 · 맛 고르기">2 · Pick Your Flavor</span></button>
+          <button type="button" class="pin-btn" role="tab" id="pin-t-stores" aria-controls="pin-panel" aria-selected="false" tabindex="-1" data-pin="stores">
+            <span class="art t3" aria-hidden="true"><span>Find Us in Stores</span><svg viewBox="0 0 170 110"><rect x="0" y="34" width="170" height="4" fill="#211617"/><rect x="0" y="94" width="170" height="4" fill="#211617"/><use href="#jar" x="6" y="-6" width="30" height="40"/><use href="#jar" x="38" y="-6" width="30" height="40"/><use href="#pouch" x="70" y="-6" width="30" height="40"/><use href="#jar" x="102" y="-6" width="30" height="40"/><use href="#pouch" x="134" y="-6" width="30" height="40"/><use href="#pouch" x="6" y="54" width="30" height="40"/><use href="#jar" x="38" y="54" width="30" height="40"/><use href="#jar" x="70" y="54" width="30" height="40"/><use href="#pouch" x="102" y="54" width="30" height="40"/><use href="#jar" x="134" y="54" width="30" height="40"/></svg></span>
+            <span class="cap" data-ko="3 · 매장에서 찾기">3 · Find Us in Stores</span></button>
+        </div>
+        <div class="panel rv" id="pin-panel" role="tabpanel" aria-labelledby="pin-t-meet" tabindex="0" style="grid-template-columns:1fr">
+          <div><h4 id="pin-h">Meet the Pickles</h4><p id="pin-p">Show jars and pouches side by side.</p><ul id="pin-ul"><li>Format: carousel, product on cream with cherry type.</li><li>First slide answers “what is this?” in five words or fewer.</li><li>Caption ends by pointing to Find Pickles Near You.</li></ul></div>
+        </div>
+        <p class="mock-label" style="text-align:left" data-ko="고정 게시물 타일과 스토리 미리보기는 이 케이스 스터디를 위해 만든 콘셉트 목업입니다. 타일 속 영문은 실제 게시물에 들어갈 문구입니다.">Pinned tiles and Story previews are concept mockups drawn for this case study.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. REEL STORYBOARD -->
+<section id="reel" class="band section reel on-red" aria-labelledby="reel-title">
+  <div class="wrap">
+    <p class="eyebrow rv" data-ko="04 · Grab &amp;amp; Go 릴스 스토리보드">04 · Grab &amp; Go Reel storyboard</p>
+    <h2 id="reel-title" class="rv" style="margin-top:12px" data-ko="도시락에 더하는 아삭한 피클">Packed lunch, pickle upgrade</h2>
+    <p class="lede rv" style="margin-top:16px" data-ko="파우치 제품을 실제로 사용하는 장면을 세 단계로 보여주는 릴스를 기획했습니다. 담고, 뜯고, 먹는 장면의 순서가 핵심입니다.">A three-beat Reel that shows the pouch format in use. The order of the frames is the point: pack, open, eat.</p>
+
+    <div class="frames rv" id="frames">
+      <figure class="frame on" data-f="0" style="margin:0">
+        <img src="assets/reel-frame-1.jpg" width="487" height="676" loading="lazy" data-ko-alt="1번 장면, 담기(Pack it): 빨간색과 크림색 줄무늬 도시락 가방에 분홍색 Hot Girl Pickles 파우치를 넣는 손." alt="Frame 1, Pack it: a hand slides a pink Hot Girl Pickles pouch into a red-and-cream striped lunch bag.">
+        <figcaption class="fl"><span data-ko="담기 · Pack it">Pack it</span><span>01</span></figcaption>
+      </figure>
+      <figure class="frame" data-f="1" style="margin:0">
+        <img src="assets/reel-frame-2.jpg" width="466" height="676" loading="lazy" data-ko-alt="2번 장면, 뜯기(Tear it): 두 손으로 파우치 윗부분을 뜯어 안에 든 피클을 보여주는 장면." alt="Frame 2, Tear it: two hands tear open the top of the pouch to show the pickles inside.">
+        <figcaption class="fl"><span data-ko="뜯기 · Tear it">Tear it</span><span>02</span></figcaption>
+      </figure>
+      <figure class="frame" data-f="2" style="margin:0">
+        <img src="assets/reel-frame-3.jpg" width="490" height="676" loading="lazy" data-ko-alt="3번 장면, 한 입(Crunch): 샌드위치, 포도, 딸기가 담긴 도시락 옆에 열린 피클 파우치가 놓인 장면." alt="Frame 3, Crunch: the open pouch of pickles sits beside a lunch box with a sandwich, grapes, and a strawberry.">
+        <figcaption class="fl"><span data-ko="한 입 · Crunch">Crunch</span><span>03</span></figcaption>
+      </figure>
+    </div>
+
+    <div class="step-ctl" role="tablist" aria-label="Storyboard steps" data-ko-aria-label="스토리보드 단계">
+      <button type="button" class="btn" role="tab" aria-selected="true" aria-controls="direction" data-step="0" id="st-0"><span data-ko="담기">Pack it</span></button>
+      <button type="button" class="btn" role="tab" aria-selected="false" aria-controls="direction" data-step="1" id="st-1" tabindex="-1"><span data-ko="뜯기">Tear it</span></button>
+      <button type="button" class="btn" role="tab" aria-selected="false" aria-controls="direction" data-step="2" id="st-2" tabindex="-1"><span data-ko="한 입">Crunch</span></button>
+    </div>
+    <div class="step-ctl js-only" style="margin-top:12px">
+      <button type="button" class="btn play" id="sb-play"><svg aria-hidden="true"><use href="#i-play"/></svg><span>Play storyboard</span></button>
+    </div>
+    <div class="progress" aria-hidden="true"><i id="sb-bar"></i></div>
+    <div class="direction" id="direction" role="tabpanel" aria-labelledby="st-0" aria-live="polite"><b>Pack it</b>Open with the pouch coming out of a lunch bag.</div>
+    <p style="font-size:.82rem;color:#FBDDE5;margin-top:10px" data-ko="릴스 콘셉트 보드에서 가져온 스토리보드 스틸컷(포트폴리오 목업)입니다. 이미지 속 영문 자막 Pack it, Tear it, Crunch는 실제 릴스에 들어갈 문구입니다. &lt;a href=&quot;assets/reel-storyboard.jpg&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; style=&quot;color:var(--pink)&quot;&gt;스토리보드 전체 보기&lt;/a&gt;">Storyboard stills from the Reel concept board, portfolio mockup. <a href="assets/reel-storyboard.jpg" target="_blank" rel="noopener" style="color:var(--pink)">Open the full storyboard</a>.</p>
+  </div>
+</section>
+
+<!-- 6. RETAIL JOURNEY -->
+<section id="journey" class="band section" aria-labelledby="journey-title" style="background:var(--white)">
+  <div class="wrap">
+    <p class="eyebrow rv" data-ko="05 · 구매 동선">05 · Retail journey</p>
+    <h2 id="journey-title" class="rv" style="margin-top:12px" data-ko="매장 진열대에서 판매처 검색까지">From the aisle to the locator</h2>
+    <p class="lede rv" style="margin-top:16px" data-ko="각 단계가 고객을 다음 행동으로 이어주도록 설계했습니다. 단계를 선택해 역할을 확인해 보세요.">Each step hands the shopper to the next action. Select a step to see what it does.</p>
+
+    <div class="journey rv" role="tablist" aria-label="Retail journey steps" data-ko-aria-label="구매 동선 단계">
+      <button type="button" class="j-step" role="tab" aria-selected="true" aria-controls="j-panel" id="j-0" data-j="0"><span class="dot"><i><svg aria-hidden="true"><use href="#i-reel"/></svg></i><em></em></span><span class="t" data-ko="리테일 릴스">Retail Reel</span><span class="k" data-ko="진열대에서 확인">See it on shelf</span></button>
+      <button type="button" class="j-step" role="tab" aria-selected="false" aria-controls="j-panel" id="j-1" data-j="1" tabindex="-1"><span class="dot"><i><svg aria-hidden="true"><use href="#i-link"/></svg></i><em></em></span><span class="t" data-ko="소개문 링크">Bio link</span><span class="k" data-ko="링크로 이동">Tap through</span></button>
+      <button type="button" class="j-step" role="tab" aria-selected="false" aria-controls="j-panel" id="j-2" data-j="2" tabindex="-1"><span class="dot"><i><svg aria-hidden="true"><use href="#i-pin"/></svg></i><em></em></span><span class="t" data-ko="매장 검색">Store locator</span><span class="k" data-ko="가까운 매장 찾기">Search nearby</span></button>
+    </div>
+
+    <div class="j-detail" id="j-panel" role="tabpanel" aria-labelledby="j-0" tabindex="0">
+      <div class="j-copy" aria-live="polite">
+        <p class="eyebrow" id="j-num">Step 1 of 3</p>
+        <h3 id="j-h" style="margin:8px 0 10px;font-size:1.9rem">Retail Reel</h3>
+        <p id="j-p">Show the exact product on shelf and add the city and retailer to a real post when verified.</p>
+        <p class="note" id="j-note">Retailer and city tags go on only after the stock is confirmed in that store.</p>
+      </div>
+      <figure class="j-art" style="margin:0">
+        <img id="j-img" src="assets/journey-step-1.jpg" width="476" height="681" loading="lazy" alt="Retail Reel mockup: Hot Girl Pickles jars on a grocery shelf with the caption Spot us in stores.">
+        <figcaption id="j-cap">Panel from the aisle-to-locator graphic. Portfolio mockup.</figcaption>
+      </figure>
+    </div>
+
+    <div class="metric-line rv">
+      <p data-ko="인스타그램에서 유입된 매장 검색 페이지 방문 수로 구매 의도를 측정합니다.">Track Instagram-referred locator visits as a signal of shopping intent.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn primary" href="https://goodgirlsnacks.com/pages/store-locator" target="_blank" rel="noopener"><span data-ko="매장 검색 페이지 열기">Open the store locator</span><svg aria-hidden="true"><use href="#i-ext"/></svg></a>
+        <a class="btn" href="https://goodgirlsnacks.com/collections/all" target="_blank" rel="noopener"><span data-ko="온라인 스토어 보기">Or shop online</span><svg aria-hidden="true"><use href="#i-ext"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. ROLLOUT -->
+<section id="test" class="band section" aria-labelledby="test-title">
+  <div class="wrap">
+    <p class="eyebrow rv" data-ko="06 · 실행 및 측정 계획">06 · Rollout and measurement</p>
+    <h2 id="test-title" class="rv" style="margin-top:12px" data-ko="우선 실행할 개선안과 검증 계획">What I’d test first</h2>
+    <div class="tbl-wrap rv" tabindex="0" role="region" aria-label="Rollout priorities table" data-ko-aria-label="실행 우선순위 표">
+      <table>
+        <thead><tr><th scope="col" data-ko="우선순위">Priority</th><th scope="col" data-ko="실행 내용">Action</th><th scope="col" data-ko="기대 효과와 소요 노력">Impact and effort</th></tr></thead>
+        <tbody>
+          <tr><td class="pr">1</td><td data-ko="프로필 이름과 4줄 소개문을 변경하고, 모바일 화면에서 결과를 확인할 계획입니다.">Update the name and four-line bio. Check the result on mobile.</td><td><span class="pill hi" data-ko="효과 높음">High impact</span><span class="pill lo" data-ko="노력 적음">Low effort</span></td></tr>
+          <tr><td class="pr">2</td><td data-ko="매장 검색 링크를 첫 번째 링크로 두고 링크 추적을 설정합니다. 모바일에서 ZIP 코드 검색을 테스트할 계획입니다.">Put the locator first and add link tracking. Test a ZIP search on mobile.</td><td><span class="pill hi" data-ko="효과 높음">High impact</span><span class="pill lo" data-ko="노력 적음">Low effort</span></td></tr>
+          <tr><td class="pr">3</td><td data-ko="적합한 소재가 있다면 제품 소개, 맛 가이드, 판매처 게시물을 상단에 고정할 것을 제안했습니다.">Pin the product introduction, flavor guide, and retail post if suitable assets exist.</td><td><span class="pill hi" data-ko="효과 높음">High impact</span><span class="pill lo" data-ko="기존 게시물 활용 시 노력 적음">Low effort with existing posts</span></td></tr>
+          <tr><td class="pr">4</td><td data-ko="하이라이트 커버와 첫 스토리를 새롭게 정비하는 것을 제안했습니다.">Refresh the Highlight covers and opening Stories.</td><td><span class="pill md" data-ko="효과 중간">Medium impact</span><span class="pill lo" data-ko="노력 적음">Low effort</span></td></tr>
+          <tr><td class="pr">5</td><td data-ko="4주간 레시피 릴스를 테스트하고, 크리에이터 시식 콘텐츠도 검토할 계획입니다.">Run a four-week recipe Reel test and consider a creator taste test.</td><td><span class="pill hi" data-ko="효과 높음">High impact</span><span class="pill me" data-ko="노력 중간">Medium effort</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mplan">
+      <p class="eyebrow rv" data-ko="제안 측정 계획">Proposed measurement plan</p>
+      <div class="mplan-grid">
+        <div class="mp rv"><p class="q" data-ko="발견">Discovery</p><p class="m" data-ko="비팔로워 도달과 신규 팔로우">Non-follower reach and follows</p><p data-ko="새 프로필 이름과 소개문이 아직 계정을 팔로우하지 않은 사람들에게 발견되고 팔로우로 이어지는지 측정합니다.">Tells me whether the new name and bio help people who don’t follow the account yet find it and stay.</p></div>
+        <div class="mp rv"><p class="q" data-ko="레시피 유용성">Recipe usefulness</p><p class="m" data-ko="저장과 공유">Saves and shares</p><p data-ko="저장은 다시 보겠다는 신호이므로, 저장과 공유 수로 레시피 릴스를 계속 제작할 가치가 있는지 측정합니다.">Tells me whether recipe Reels are worth keeping, because a save means someone plans to come back.</p></div>
+        <div class="mp rv"><p class="q" data-ko="구매 의도">Shopping intent</p><p class="m" data-ko="인스타그램 유입 매장 검색 방문">Instagram-referred locator visits</p><p data-ko="소개문 링크와 판매처 게시물이 실제 매장 검색으로 이어지는지 측정합니다.">Tells me whether the bio link and retail posts move people toward a store search.</p></div>
+      </div>
+      <p class="rv" style="margin-top:20px;font-size:.88rem;color:var(--ink-2)" data-ko="향후 테스트를 위해 제안한 지표이며, 실제 성과 수치를 주장하지 않습니다.">These are proposed measures for future testing. No performance results are claimed.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- 8. FOOTER -->
+<footer class="band">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow" style="color:var(--pink)" data-ko="독립 인스타그램 진단 및 개선 콘셉트">Independent Instagram Audit &amp; Redesign Concept</p>
+      <h2 style="margin-top:10px" data-ko="작업: Abhilasha Kashyap">By Abhilasha Kashyap</h2>
+      <p style="margin-top:14px;max-width:52ch;color:#E8D9D6" data-ko="개인적으로 진행한 포트폴리오 케이스 스터디이며, Good Girl Snacks와 제휴하거나 승인을 받은 작업이 아닙니다. 프로필, 콘텐츠, 구매 동선 디자인은 모두 제안안입니다.">This is a portfolio case study made independently. It is not affiliated with or endorsed by Good Girl Snacks. Profile, content, and shopping-journey designs are proposals.</p>
+      <a class="btn" href="#compare" data-goto="compare"><span data-ko="비교 화면으로 돌아가기">Back to comparison</span></a>
+    </div>
+    <div>
+      <p class="eyebrow" style="color:var(--pink)" data-ko="출처">Sources</p>
+      <ul>
+        <li><a href="https://www.instagram.com/goodgirlsnacks/" target="_blank" rel="noopener"><span data-ko="인스타그램 프로필">Instagram profile</span></a></li>
+        <li><a href="https://goodgirlsnacks.com/" target="_blank" rel="noopener"><span data-ko="브랜드 웹사이트">Brand website</span></a></li>
+        <li><a href="https://goodgirlsnacks.com/pages/store-locator" target="_blank" rel="noopener"><span data-ko="공식 매장 검색 페이지">Official store locator</span></a></li>
+      </ul>
+    </div>
+    <p class="fine" data-ko="기존 프로필 스크린샷은 진단을 위해 제공된 특정 시점 자료입니다. 게시 빈도, 고정 게시물 여부, 계정 성과는 확인하지 않았습니다.">Original profile screenshot is a point-in-time reference supplied for the audit. Posting cadence, pin status, and account performance were not verified.</p>
+  </div>
+</footer>
+
+<dialog id="full-dlg" aria-labelledby="dlg-t">
+  <div class="dlg-head"><b id="dlg-t" data-ko="개선안 프로필 전체 (목업)">Full proposed profile (mockup)</b><button type="button" class="btn" id="dlg-close" style="min-height:40px;padding:0 16px" data-ko="닫기">Close</button></div>
+  <div class="dlg-body" id="dlg-body"></div>
+</dialog>
+
+<script>
+(function(){
+  'use strict';
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  function rm(){ return reduce.matches; }
+  var root = document.documentElement;
+  var LANG = root.lang === 'ko' ? 'ko' : 'en';
+  function L(o){ return o[LANG]; }
+  function escHTML(x){ return String(x).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+  /* ---------- Copy used by scripted parts ---------- */
+  var UI = {
+    en: {title:'Good Girl Snacks Redesign', valuetext:function(o,p){ return o + '% original, ' + p + '% proposal'; },
+         coIdle:['Pick a callout','Each one opens the full proposal and highlights the line it explains.'],
+         sbPlay:'Play storyboard', sbStop:'Stop storyboard', stepOf:function(i){ return 'Step ' + i + ' of 3'; },
+         dlgLabel:'Proposed profile, portfolio mockup.'},
+    ko: {title:'Good Girl Snacks 인스타그램 개선안', valuetext:function(o,p){ return '기존 ' + o + '%, 개선안 ' + p + '%'; },
+         coIdle:['항목을 선택하세요','각 항목을 누르면 개선안 전체가 보이고 해당 문구가 강조됩니다.'],
+         sbPlay:'스토리보드 재생', sbStop:'스토리보드 정지', stepOf:function(i){ return '3단계 중 ' + i + '단계'; },
+         dlgLabel:'개선안 프로필의 포트폴리오 목업입니다. 화면 속 문구는 미국 고객용 영문 원안입니다.'}
+  };
+  var NOTES = {
+    en: {
+      name: ['Display name', 'Adding “Hot Girl Pickles” puts the wording from the packaging into the profile name, so someone who saw the jar can recognize the account.'],
+      benefit: ['Product benefit', 'The first two lines say what the product is and why to try it, crunch and bold flavor in jars or pouches, before any store names appear.'],
+      retail: ['Retail proof', 'Two named retailers still confirm the pickles are easy to buy, but they now support the product line instead of leading the bio.'],
+      locator: ['Store locator', '“Find Pickles Near You” opens the official store locator, which is a clearer next step than the general goodgirlsnacks.com domain.']
+    },
+    ko: {
+      name: ['프로필 이름', '패키지에 적힌 제품명 “Hot Girl Pickles”를 프로필 이름에 추가해, 매장에서 병 제품을 본 고객이 계정을 바로 알아볼 수 있도록 했습니다.'],
+      benefit: ['제품 매력', '첫 두 줄에서 제품이 무엇이고 왜 먹어볼 만한지, 즉 아삭한 식감과 병·파우치 제품을 판매처보다 먼저 보여주도록 개선했습니다.'],
+      retail: ['판매처 정보', '판매처 두 곳을 남겨 쉽게 구매할 수 있다는 신호는 유지하되, 소개문의 첫 줄이 아닌 제품 설명 뒤에 배치했습니다.'],
+      locator: ['매장 검색 링크', '“Find Pickles Near You” 링크를 공식 매장 검색 페이지로 연결해, 일반 도메인보다 다음 행동이 분명해지도록 제안했습니다.']
+    }
+  };
+  var HL = {
+    en: {
+      find: {t:'Find Us', p:'Show where to start a store search.', li:['Story 1: “Where to find us” with a link sticker to the official locator.','Story 2: Type a ZIP code and pick jars or pouches.']},
+      grab: {t:'Grab & Go', p:'Introduce the pouch and demonstrate how it opens.', li:['Story 1: The fork-free pouch next to a jar for scale.','Story 2: A three-second clip of the tear notch opening.']},
+      recipes: {t:'Recipes', p:'Give followers snack ideas they can save.', li:['Story 1: One recipe per Story, ingredients on screen.','Story 2: Repost recipe Reels, like the fried pickle mac n cheese post already on the grid.']},
+      press: {t:'Press', p:'Keep brand coverage easy to browse.', li:['Story 1: One article per Story with the outlet name and date.','Story 2: Newest coverage first, with a link sticker to each piece.']}
+    },
+    ko: {
+      find: {t:'Find Us · 매장 찾기', p:'매장 검색을 어디서 시작하면 되는지 보여줍니다.', li:['스토리 1: “Where to find us” 화면에 공식 매장 검색 페이지로 연결되는 링크 스티커를 붙입니다.','스토리 2: ZIP 코드를 입력하고 병 또는 파우치 제품을 고르는 방법을 안내합니다.']},
+      grab: {t:'Grab & Go · 간편 파우치', p:'파우치 제품을 소개하고 여는 방법을 보여줍니다.', li:['스토리 1: 크기를 비교할 수 있도록 포크 없이 먹는 파우치를 병 제품 옆에 둡니다.','스토리 2: 절취선을 뜯어 여는 장면을 3초 영상으로 보여줍니다.']},
+      recipes: {t:'Recipes · 레시피', p:'팔로워가 저장해 두고 따라 할 수 있는 간식 아이디어를 제공합니다.', li:['스토리 1: 스토리 한 장에 레시피 하나를 소개하고 재료를 화면에 표시합니다.','스토리 2: 피드에 이미 있는 fried pickle mac n cheese 게시물 같은 레시피 릴스를 다시 공유합니다.']},
+      press: {t:'Press · 언론 보도', p:'브랜드 관련 기사를 쉽게 찾아볼 수 있도록 정리합니다.', li:['스토리 1: 스토리 한 장에 기사 하나를 소개하고 매체명과 날짜를 함께 표시합니다.','스토리 2: 최신 기사부터 배치하고 각 기사로 연결되는 링크 스티커를 붙입니다.']}
+    }
+  };
+  var HL_ART = { find:['Find us near you','t1'], grab:['Tear. Crunch. Go.','t2'], recipes:['Save this snack','t4'], press:['As seen in','t5'] };
+  var PIN = {
+    en: {
+      meet: {t:'Meet the Pickles', p:'Show jars and pouches side by side.', li:['Format: carousel, product on cream with cherry type.','First slide answers “what is this?” in five words or fewer.','Caption ends by pointing to Find Pickles Near You.']},
+      flavor: {t:'Pick Your Flavor', p:'Compare Original Dill and Honey Harissa with labeled products.', li:['Format: two-slide carousel, one flavor per slide with the label facing camera.','One line each on taste so shoppers can choose before they reach the shelf.','Close with a prompt to comment a favorite.']},
+      stores: {t:'Find Us in Stores', p:'Use a grocery shelf scene and point shoppers to the locator.', li:['Format: photo or short Reel of the product on a real shelf.','Name the retailer and city only when the stock is verified.','Caption sends shoppers to Find Pickles Near You for a ZIP search.']}
+    },
+    ko: {
+      meet: {t:'Meet the Pickles · 피클 소개', p:'병 제품과 파우치 제품을 나란히 보여줍니다.', li:['형식: 캐러셀. 크림색 배경에 체리 레드 타이포그래피로 제품을 배치합니다.','첫 장에서 “이게 뭐지?”라는 질문에 짧고 분명하게 답합니다.','캡션 마지막에 Find Pickles Near You 링크를 안내합니다.']},
+      flavor: {t:'Pick Your Flavor · 맛 고르기', p:'Original Dill과 Honey Harissa를 라벨이 보이는 제품 사진으로 비교합니다.', li:['형식: 2장짜리 캐러셀. 한 장에 한 가지 맛을 담고 라벨이 정면을 향하도록 촬영합니다.','맛마다 한 줄 설명을 붙여 매장에 가기 전에 고를 수 있도록 합니다.','마지막에 좋아하는 맛을 댓글로 남기도록 유도합니다.']},
+      stores: {t:'Find Us in Stores · 매장에서 찾기', p:'실제 매장 진열대 장면을 사용하고 매장 검색 페이지로 안내합니다.', li:['형식: 실제 진열대에 놓인 제품 사진 또는 짧은 릴스.','재고가 확인된 경우에만 판매처와 도시명을 표기합니다.','캡션에서 Find Pickles Near You 링크를 통한 ZIP 코드 검색을 안내합니다.']}
+    }
+  };
+  var SB = {
+    en: [['Pack it','Open with the pouch coming out of a lunch bag.'],['Tear it','Cut to the hands opening the pouch to show how it works.'],['Crunch','End on the pickles beside the lunch and give viewers a reason to save the idea.']],
+    ko: [['담기','도시락 가방에서 파우치를 꺼내는 장면으로 시작합니다.'],['뜯기','손으로 파우치를 뜯어 여는 장면으로 전환해 사용법을 보여줍니다.'],['한 입','도시락 옆에 놓인 피클로 마무리하고, 시청자가 아이디어를 저장할 이유를 줍니다.']]
+  };
+  var J = {
+    en: [
+      {h:'Retail Reel', p:'Show the exact product on shelf and add the city and retailer to a real post when verified.', note:'Retailer and city tags go on only after the stock is confirmed in that store.', cap:'Panel from the aisle-to-locator graphic. Portfolio mockup.', t:'Retail Reel mockup: Hot Girl Pickles jars on a grocery shelf with the caption Spot us in stores.'},
+      {h:'Bio link', p:'Give interested viewers a direct route through Find Pickles Near You.', note:'The link label says exactly where it goes, so a tap feels like the next step rather than a detour.', cap:'Panel from the aisle-to-locator graphic. Portfolio mockup.', t:'Bio link mockup: the proposed goodgirlsnacks profile with the product-first bio and the Find Pickles Near You link.'},
+      {h:'Store locator', p:'Open the official locator for a real search. Treat the illustrated map as a mockup and keep it free of invented listings.', note:'', cap:'Illustrated map, portfolio mockup. It shows no store listings; real results come from the official locator.', t:'Store locator mockup: an illustrated map with three pins and an Enter ZIP code search box, with no store names listed.'}
+    ],
+    ko: [
+      {h:'리테일 릴스', p:'진열대에 놓인 실제 제품을 보여주고, 확인된 경우에만 실제 게시물에 도시와 판매처를 표기하도록 제안했습니다.', note:'해당 매장의 재고가 확인된 뒤에만 판매처와 도시 태그를 추가합니다.', cap:'구매 동선 이미지의 첫 번째 패널(포트폴리오 목업)입니다. “Spot us in stores”는 릴스에 들어갈 영문 자막입니다.', t:'리테일 릴스 목업: 진열대에 놓인 Hot Girl Pickles 병 제품과 “Spot us in stores” 자막.'},
+      {h:'소개문 링크', p:'관심이 생긴 시청자가 Find Pickles Near You 링크로 바로 이동할 수 있도록 했습니다.', note:'링크 이름이 연결되는 곳을 정확히 알려주기 때문에, 클릭이 자연스러운 다음 단계로 느껴집니다.', cap:'두 번째 패널은 영문 소개문과 Find Pickles Near You 링크가 있는 개선안 프로필(포트폴리오 목업)입니다.', t:'소개문 링크 목업: 제품 중심 소개문과 Find Pickles Near You 링크가 있는 개선안 goodgirlsnacks 프로필.'},
+      {h:'매장 검색', p:'공식 매장 검색 페이지를 열어 실제로 검색할 수 있게 합니다. 지도 그림은 목업으로만 사용하고, 가상의 매장 정보는 넣지 않았습니다.', note:'', cap:'지도 일러스트는 포트폴리오 목업이며 매장 목록을 표시하지 않습니다. 실제 결과는 공식 매장 검색 페이지에서 확인할 수 있습니다.', t:'매장 검색 목업: 핀 세 개가 있는 지도 일러스트와 Enter ZIP code 검색창. 매장 이름은 표시하지 않았습니다.'}
+    ]
+  };
+  var JIMG = [['assets/journey-step-1.jpg',476,681],['assets/journey-step-2.jpg',472,681],['assets/journey-step-3.jpg',476,681]];
+  JIMG.forEach(function(x){ var im = new Image(); im.src = x[0]; });
+
+  var quiet = false; // suppress panel fade while re-rendering for a language switch
+  function fadeIn(el){
+    if(quiet || rm() || !el.animate) return;
+    el.animate([{opacity:.35, transform:'translateY(6px)'},{opacity:1, transform:'none'}], {duration:260, easing:'ease-out'});
+  }
+
+  /* ---------- Comparison ---------- */
+  var cmp = document.getElementById('cmp');
+  var layers = document.getElementById('cmp-layers');
+  var range = document.getElementById('cmp-range');
+  var bBefore = document.getElementById('btn-before');
+  var bAfter = document.getElementById('btn-after');
+  var bPlay = document.getElementById('btn-play');
+  var after = document.getElementById('layer-after');
+  var before = document.getElementById('layer-before');
+  var link = document.getElementById('locator-link');
+  var tagL = document.querySelector('.layer-tag.l'), tagR = document.querySelector('.layer-tag.r');
+  var pos = 50, anim = null, activeCo = null;
+
+  function setPos(p, fromRange){
+    pos = Math.max(0, Math.min(100, p));
+    cmp.style.setProperty('--pos', pos + '%');
+    range.style.setProperty('--pos', pos + '%');
+    if(!fromRange) range.value = Math.round(pos);
+    var orig = Math.round(pos);
+    range.setAttribute('aria-valuetext', L(UI).valuetext(orig, 100 - orig));
+    bBefore.setAttribute('aria-pressed', String(pos >= 100));
+    bAfter.setAttribute('aria-pressed', String(pos <= 0));
+    after.inert = pos >= 100; before.inert = pos <= 0;
+    link.tabIndex = pos >= 100 ? -1 : 0;
+    tagL.classList.toggle('off', pos < 12);
+    tagR.classList.toggle('off', pos > 88);
+  }
+  function stopAnim(){ if(anim){ cancelAnimationFrame(anim.raf); clearTimeout(anim.t); anim = null; } }
+  function clearCallout(){
+    activeCo = null;
+    document.querySelectorAll('.co').forEach(function(b){ b.setAttribute('aria-pressed','false'); });
+    document.querySelectorAll('.hl-on').forEach(function(e){ e.classList.remove('hl-on'); });
+    renderCo();
+  }
+  function tween(from, to, ms){
+    var start = null;
+    function step(ts){
+      if(!anim) return;
+      if(start === null) start = ts;
+      var k = Math.min(1, (ts - start) / ms);
+      var e = k < .5 ? 4*k*k*k : 1 - Math.pow(-2*k+2, 3)/2;
+      setPos(from + (to - from) * e);
+      if(k < 1) anim.raf = requestAnimationFrame(step); else anim = null;
+    }
+    anim = anim || {};
+    anim.raf = requestAnimationFrame(step);
+  }
+  function goto(p){ stopAnim(); if(rm()) setPos(p); else { anim = {}; tween(pos, p, 380); } }
+
+  bBefore.addEventListener('click', function(){ clearCallout(); goto(100); });
+  bAfter.addEventListener('click', function(){ goto(0); });
+  bPlay.addEventListener('click', function(){
+    stopAnim(); clearCallout();
+    setPos(100);
+    if(rm()){ anim = {t: setTimeout(function(){ anim = null; setPos(0); }, 700)}; return; }
+    anim = {};
+    anim.t = setTimeout(function(){ tween(100, 0, 1500); }, 650);
+  });
+  range.addEventListener('input', function(){ stopAnim(); setPos(+range.value, true); });
+  range.addEventListener('focus', function(){ cmp.classList.add('focus-ring'); });
+  range.addEventListener('blur', function(){ cmp.classList.remove('focus-ring'); });
+
+  // Pointer drag: horizontal drags move the divider; vertical gestures scroll natively (touch-action: pan-y)
+  var drag = null;
+  function pctFromX(x){ var r = layers.getBoundingClientRect(); return (x - r.left) / r.width * 100; }
+  layers.addEventListener('pointerdown', function(e){
+    if(e.button !== 0) return;
+    drag = {x: e.clientX, y: e.clientY, id: e.pointerId, active: e.pointerType === 'mouse' && !e.target.closest('a')};
+    if(drag.active){ stopAnim(); setPos(pctFromX(e.clientX)); try{ layers.setPointerCapture(e.pointerId); }catch(_){} e.preventDefault(); }
+  });
+  layers.addEventListener('pointermove', function(e){
+    if(!drag || e.pointerId !== drag.id) return;
+    if(!drag.active){
+      var dx = Math.abs(e.clientX - drag.x), dy = Math.abs(e.clientY - drag.y);
+      if(dx > 6 && dx > dy){ drag.active = true; stopAnim(); try{ layers.setPointerCapture(e.pointerId); }catch(_){} }
+      else if(dy > 8){ drag = null; return; }
+      else return;
+    }
+    setPos(pctFromX(e.clientX));
+  });
+  layers.addEventListener('pointerup', function(e){ if(drag && e.pointerId === drag.id) drag = null; });
+  layers.addEventListener('pointercancel', function(){ drag = null; });
+  link.addEventListener('click', function(e){ if(pos >= 100) e.preventDefault(); });
+
+  // Callouts
+  var coOut = document.getElementById('co-out');
+  function renderCo(){
+    var n = activeCo ? L(NOTES)[activeCo] : L(UI).coIdle;
+    coOut.innerHTML = '<b>' + escHTML(n[0]) + '</b>' + escHTML(n[1]);
+  }
+  document.querySelectorAll('.co').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var key = btn.dataset.co;
+      clearCallout();
+      activeCo = key;
+      btn.setAttribute('aria-pressed','true');
+      after.querySelectorAll('[data-row="' + key + '"]' + (key === 'benefit' ? ',[data-row="cue"]' : '')).forEach(function(r){ r.classList.add('hl-on'); });
+      renderCo();
+      goto(0);
+    });
+  });
+
+  // Full proposed profile dialog
+  var dlg = document.getElementById('full-dlg');
+  var dlgLabel = null;
+  document.getElementById('open-full').addEventListener('click', function(){
+    var body = document.getElementById('dlg-body');
+    if(!body.firstChild){
+      var c = document.getElementById('full-mock').cloneNode(true); c.removeAttribute('id'); body.appendChild(c);
+      dlgLabel = document.createElement('p'); dlgLabel.className = 'mock-label'; body.appendChild(dlgLabel);
+    }
+    dlgLabel.textContent = L(UI).dlgLabel;
+    if(typeof dlg.showModal === 'function') dlg.showModal(); else document.getElementById('setup').scrollIntoView();
+  });
+  document.getElementById('dlg-close').addEventListener('click', function(){ dlg.close(); });
+  dlg.addEventListener('click', function(e){ if(e.target === dlg) dlg.close(); });
+
+  setPos(50);
+
+  /* ---------- Tabs helper (click, tap, arrow keys) ---------- */
+  var groups = [];
+  function tabs(list, onSelect){
+    var items = Array.prototype.slice.call(list);
+    var state = {i: Math.max(0, items.findIndex(function(b){ return b.getAttribute('aria-selected') === 'true'; }))};
+    function select(i, focus){
+      state.i = i;
+      items.forEach(function(b, j){ b.setAttribute('aria-selected', String(i === j)); b.tabIndex = i === j ? 0 : -1; });
+      if(focus) items[i].focus();
+      onSelect(i, items[i]);
+    }
+    items.forEach(function(b, i){
+      b.addEventListener('click', function(){ select(i, false); b.dispatchEvent(new CustomEvent('manual')); });
+      b.addEventListener('keydown', function(e){
+        var n = null;
+        if(e.key === 'ArrowRight' || e.key === 'ArrowDown') n = (i + 1) % items.length;
+        if(e.key === 'ArrowLeft' || e.key === 'ArrowUp') n = (i - 1 + items.length) % items.length;
+        if(e.key === 'Home') n = 0; if(e.key === 'End') n = items.length - 1;
+        if(n !== null){ e.preventDefault(); select(n, true); items[n].dispatchEvent(new CustomEvent('manual')); }
+      });
+    });
+    groups.push(function(){ onSelect(state.i, items[state.i]); });
+    return select;
+  }
+  function list(arr){ return arr.map(function(x){ return '<li>' + escHTML(x) + '</li>'; }).join(''); }
+
+  /* ---------- Highlights ---------- */
+  tabs(document.querySelectorAll('.hl-btn'), function(i, b){
+    var k = b.dataset.hl, d = L(HL)[k], panel = document.getElementById('hl-panel');
+    panel.setAttribute('aria-labelledby', b.id);
+    var st = document.getElementById('hl-story'); st.className = 'story ' + HL_ART[k][1]; st.textContent = HL_ART[k][0];
+    document.getElementById('hl-h').textContent = d.t;
+    document.getElementById('hl-p').textContent = d.p;
+    document.getElementById('hl-ul').innerHTML = list(d.li);
+    fadeIn(panel);
+  });
+
+  /* ---------- Pinned posts ---------- */
+  tabs(document.querySelectorAll('.pin-btn'), function(i, b){
+    var d = L(PIN)[b.dataset.pin], panel = document.getElementById('pin-panel');
+    panel.setAttribute('aria-labelledby', b.id);
+    document.getElementById('pin-h').textContent = d.t;
+    document.getElementById('pin-p').textContent = d.p;
+    document.getElementById('pin-ul').innerHTML = list(d.li);
+    fadeIn(panel);
+  });
+
+  /* ---------- Storyboard ---------- */
+  var frames = document.querySelectorAll('.frame');
+  var dir = document.getElementById('direction');
+  var bar = document.getElementById('sb-bar');
+  var sbPlay = document.getElementById('sb-play');
+  var sbTimer = null;
+  var stepBtns = document.querySelectorAll('.step-ctl [data-step]');
+  var selectStep = tabs(stepBtns, function(i, b){
+    frames.forEach(function(f, j){ f.classList.toggle('on', i === j); });
+    dir.setAttribute('aria-labelledby', b.id);
+    var s = L(SB)[i];
+    dir.innerHTML = '<b>' + escHTML(s[0]) + '</b>' + escHTML(s[1]);
+    bar.style.width = ((i + 1) / 3 * 100) + '%';
+  });
+  function sbLabel(){ sbPlay.querySelector('span').textContent = sbTimer ? L(UI).sbStop : L(UI).sbPlay; sbPlay.setAttribute('aria-pressed', String(!!sbTimer)); }
+  function stopSB(){ if(sbTimer){ clearTimeout(sbTimer); sbTimer = null; } sbLabel(); }
+  stepBtns.forEach(function(b){ b.addEventListener('manual', function(){ if(sbTimer) stopSB(); }); });
+  sbPlay.addEventListener('click', function(){
+    if(sbTimer){ stopSB(); return; }
+    var i = 0; selectStep(0, false);
+    function next(){
+      i++;
+      if(i > 2){ sbTimer = null; sbLabel(); return; }
+      selectStep(i, false);
+      sbTimer = setTimeout(next, 2200);
+    }
+    sbTimer = setTimeout(next, 2200);
+    sbLabel();
+  });
+  bar.style.width = '33.33%';
+
+  /* ---------- Retail journey ---------- */
+  var jSteps = document.querySelectorAll('.j-step');
+  tabs(jSteps, function(i, b){
+    jSteps.forEach(function(s, j){ s.classList.toggle('done', j < i); });
+    var d = L(J)[i];
+    document.getElementById('j-panel').setAttribute('aria-labelledby', b.id);
+    document.getElementById('j-num').textContent = L(UI).stepOf(i + 1);
+    document.getElementById('j-h').textContent = d.h;
+    document.getElementById('j-p').textContent = d.p;
+    var note = document.getElementById('j-note'); note.textContent = d.note; note.hidden = !d.note;
+    document.getElementById('j-cap').textContent = d.cap;
+    var img = document.getElementById('j-img');
+    if(img.getAttribute('src') !== JIMG[i][0]){ img.src = JIMG[i][0]; img.width = JIMG[i][1]; img.height = JIMG[i][2]; }
+    img.alt = d.t;
+    fadeIn(document.getElementById('j-panel'));
+  });
+
+  /* ---------- Language ---------- */
+  function swapStatic(){
+    document.querySelectorAll('[data-ko]').forEach(function(el){
+      if(el.dataset.en === undefined) el.dataset.en = el.innerHTML;
+      el.innerHTML = LANG === 'ko' ? el.dataset.ko : el.dataset.en;
+    });
+    ['aria-label','alt'].forEach(function(a){
+      document.querySelectorAll('[data-ko-' + a + ']').forEach(function(el){
+        var keep = 'data-en-' + a;
+        if(!el.hasAttribute(keep)) el.setAttribute(keep, el.getAttribute(a) || '');
+        el.setAttribute(a, LANG === 'ko' ? el.getAttribute('data-ko-' + a) : el.getAttribute(keep));
+      });
+    });
+  }
+  // Keep the reader at the same spot: anchor on the first block just below the sticky header
+  function anchor(){
+    var hb = document.querySelector('body > header').getBoundingClientRect().bottom;
+    var c = document.querySelectorAll('main h2, main h3, .cmp, .range-row, .frames, .j-detail, .tbl-wrap, .panel, main figure, .lede, .metric-line, .mplan-grid, footer');
+    for(var i = 0; i < c.length; i++){
+      var r = c[i].getBoundingClientRect();
+      if(r.height && r.top >= hb - 2) return {el: c[i], top: r.top};
+    }
+    return null;
+  }
+  var langBtns = document.querySelectorAll('.lang [data-lang]');
+  function applyLang(next, keepPlace){
+    var a = keepPlace ? anchor() : null;
+    LANG = next;
+    root.lang = next;
+    document.title = L(UI).title;
+    langBtns.forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.lang === next)); });
+    swapStatic();
+    quiet = true;
+    groups.forEach(function(f){ f(); });
+    quiet = false;
+    renderCo(); setPos(pos); sbLabel();
+    if(dlgLabel) dlgLabel.textContent = L(UI).dlgLabel;
+    if(a){
+      window.scrollTo({top: window.scrollY + a.el.getBoundingClientRect().top - a.top, left: 0, behavior: 'instant'});
+    }
+    try{ localStorage.setItem('ggs-lang', next); }catch(_){}
+  }
+  langBtns.forEach(function(b){
+    b.addEventListener('click', function(){ if(b.dataset.lang !== LANG) applyLang(b.dataset.lang, true); });
+  });
+  if(LANG === 'ko') applyLang('ko', false); else { renderCo(); sbLabel(); }
+
+  /* ---------- Smooth jump to comparison (focus lands on the demo) ---------- */
+  document.querySelectorAll('[data-goto]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var t = document.getElementById(a.dataset.goto); if(!t) return;
+      e.preventDefault();
+      t.scrollIntoView({behavior: rm() ? 'auto' : 'smooth', block:'start'});
+      t.focus({preventScroll:true});
+      try{ history.replaceState(null, '', '#' + a.dataset.goto); }catch(_){}
+    });
+  });
+
+  /* ---------- Scroll reveal (below-the-fold only, reading order) ---------- */
+  if(!rm() && 'IntersectionObserver' in window){
+    var vh = window.innerHeight;
+    var els = Array.prototype.slice.call(document.querySelectorAll('.rv')).filter(function(el){ return el.getBoundingClientRect().top > vh * 0.9; });
+    els.forEach(function(el){ el.classList.add('pre'); });
+    var io = new IntersectionObserver(function(entries){
+      var shown = 0;
+      entries.forEach(function(en){
+        if(en.isIntersecting){ var el = en.target; el.style.transitionDelay = (shown++ * 80) + 'ms'; el.classList.remove('pre'); io.unobserve(el); setTimeout(function(){ el.style.transitionDelay = ''; }, 900); }
+      });
+    }, {rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(el){ io.observe(el); });
+    setTimeout(function(){ document.querySelectorAll('.rv.pre').forEach(function(el){ if(el.getBoundingClientRect().top < window.innerHeight) el.classList.remove('pre'); }); }, 2500);
+  }
+})();
+</script>
+</body>
+</html>
